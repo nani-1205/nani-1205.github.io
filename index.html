@@ -4,259 +4,180 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sai Jagan Yetukuri - DevOps Engineer</title>
-    <!-- Link to external CSS stylesheet -->
     <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts for typography (Montserrat for headings, Open Sans for body) -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <!-- Font Awesome for icons (social, arrows, service icons) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <!-- Header Section - Top Navigation Bar -->
-    <header>
-        <nav class="container">
-            <div class="logo">
-                <!-- Replace 'path/to/your/logo.png' with your actual logo image path -->
-                <img src="images/logo.png" alt="Logo" class="logo-image">
-            </div>
-            <ul class="nav-links">
-                <li><a href="#services">Services</a></li>
-                <li><a href="#works">Works</a></li>
-                <li><a href="#blog">Blog</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main>
-        <!-- Hero Section - First visible section with your introduction -->
-        <section class="hero">
-            <div class="container hero-content">
-                <div class="hero-text">
-                    <h1>Sai Jagan Yetukuri.</h1>
-                    <p class="hero-title">DevOps Engineer, specializing in AWS and Azure Cloud Platforms.</p>
-                    <p class="introduction-snippet">Passionate about streamlining development cycles and building scalable, secure cloud infrastructure through code, automation, and innovative tooling.</p>
-                    <a href="#about" class="btn">My story <i class="fas fa-arrow-right"></i></a>
-                    <div class="social-icons">
-                        <a href="https://github.com/nani-1205" target="_blank" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/sai-jagan-yetukuri-8b662a2b2/" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
-                        <!-- Add other social icons as needed with appropriate Font Awesome classes and hrefs -->
+    <div class="site-background">
+
+        <!-- Header Section -->
+        <header>
+            <nav class="container">
+                <div class="logo">
+                    <a href="#" class="logo-text">Sai Jagan Yetukuri</a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Hero Section -->
+            <section class="hero" id="home">
+                <div class="container hero-content">
+                    <div class="hero-text">
+                        <h1>DevOps Engineer & Cloud Specialist</h1>
+                        <p class="introduction-snippet">Passionate about building scalable, secure cloud infrastructure through code, automation, and innovative tooling on AWS and Azure platforms.</p>
+                        <a href="#services" class="btn">View My Services <i class="arrow-down"></i></a>
                     </div>
                 </div>
-                <div class="hero-image">
-                    <!-- Replace 'path/to/your/profile-picture.jpg' with your actual profile picture path -->
-                    <img src="images/profile-picture.jpg" alt="Sai Jagan Yetukuri">
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- About / Contact & Achievements Section - Grid layout for two content blocks -->
-        <section class="about-contact-achievements">
-            <div class="container grid-2-col">
-                <div class="contact-info">
-                    <h2 id="about">- About Me</h2>
-                    <h3>My Journey in DevOps.</h3>
-                    <p>With a strong foundation in cloud platforms like AWS and Azure, I specialize in crafting automated, resilient, and secure infrastructure. My focus is on leveraging Infrastructure as Code, robust CI/CD pipelines, and custom tooling to optimize software delivery and operational efficiency.</p>
-                    <a href="mailto:yetukurisaijagan@gmail.com" class="email-link">yetukurisaijagan@gmail.com <i class="fas fa-arrow-right"></i></a>
+            <!-- Services Section -->
+            <section class="services" id="services">
+                <div class="container">
+                    <h2 class="section-title">My Professional Services</h2>
+                    <div class="card-grid">
+                        
+                        <!-- Service Card 1 -->
+                        <div class="service-card">
+                            <div class="service-icon-container">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" /></svg>
+                            </div>
+                            <h4>Cloud Infrastructure Automation</h4>
+                            <p>Scalable and secure cloud solutions using Terraform and IaC for enhanced agility and efficiency.</p>
+                        </div>
+
+                        <!-- Service Card 2 -->
+                        <div class="service-card">
+                             <div class="service-icon-container">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.242 1.417l-1.07 1.07a1.125 1.125 0 000 1.591l1.07 1.07a1.125 1.125 0 01.242 1.417l-1.296 2.247a1.125 1.125 0 01-1.37.49l-1.217-.456a1.125 1.125 0 00-1.075.124c-.073.044-.146.087-.22.127a1.125 1.125 0 00-.645.87l-.213 1.281c-.09.543-.56.94-1.11.94h-2.593c-.55 0-1.02-.398-1.11-.94l-.213-1.281a1.125 1.125 0 00-.645-.87c-.074-.04-.147-.083-.22-.127a1.125 1.125 0 00-1.075-.124l-1.217.456a1.125 1.125 0 01-1.37-.49l-1.296-2.247a1.125 1.125 0 01.242-1.417l1.07-1.07a1.125 1.125 0 000-1.591l-1.07-1.07a1.125 1.125 0 01-.242-1.417l1.296-2.247a1.125 1.125 0 011.37-.49l1.217.456a1.125 1.125 0 001.075-.124c.073-.044.146-.087.22-.127.324-.196.72-.257 1.075-.124l.213-1.281z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            </div>
+                            <h4>Custom DevOps Tooling</h4>
+                            <p>Bespoke web UIs and scripts to automate complex operational workflows.</p>
+                        </div>
+
+                        <!-- Service Card 3 -->
+                        <div class="service-card">
+                             <div class="service-icon-container">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" /></svg>
+                            </div>
+                            <h4>Platform & Data Migrations</h4>
+                            <p>Seamlessly migrating GitLab, S3 data, and other critical systems to new platforms.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="achievements">
-                    <h2>Driving Innovation in Cloud & Automation.</h2>
-                    <div class="stats">
-                        <div class="stat-item">
-                            <span class="number">[Your Actual Number]</span>
-                            <span class="label">Years of Experience.</span>
+            </section>
+
+            <!-- Featured Projects Section - THIS IS THE NEW SECTION -->
+            <section class="projects" id="projects">
+                <div class="container">
+                    <h2 class="section-title">Featured Projects</h2>
+                    <div class="card-grid">
+
+                        <!-- Project Card 1 -->
+                        <a href="https://github.com/nani-1205/terraform-multi-stage" target="_blank" class="service-card project-card active">
+                            <div class="service-icon-container">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 010 3.75H5.625a1.875 1.875 0 010-3.75z" /></svg>
+                            </div>
+                            <h4>Multi-Stage AWS Infrastructure</h4>
+                            <p>Deployed a modular 3-tier application architecture on AWS using Terraform for efficient management.</p>
+                        </a>
+
+                        <!-- Project Card 2 -->
+                        <a href="https://github.com/nani-1205/s3" target="_blank" class="service-card project-card">
+                            <div class="service-icon-container">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12a7.5 7.5 0 0015 0m-15 0a7.5 7.5 0 1115 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077l1.41-.513m14.095-5.13l-1.41-.513M5.106 17.785l1.153-.964M16.745 7.86l1.154-.964m-14.095 0L4.5 12m16.5 0l-1.41 1.061" /></svg>
+                            </div>
+                            <h4>S3 Data Migration Dashboard</h4>
+                            <p>Developed a Flask UI for secure, cross-account S3 data migrations with live progress monitoring.</p>
+                        </a>
+
+                        <!-- Project Card 3 -->
+                        <a href="https://github.com/nani-1205/MCP" target="_blank" class="service-card project-card">
+                            <div class="service-icon-container">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c1.358 0 2.662-.186 3.884-.534M12 21c-1.358 0-2.662-.186-3.884-.534M3.5 7.5c0-4.142 3.358-7.5 7.5-7.5s7.5 3.358 7.5 7.5c0 4.142-3.358 7.5-7.5 7.5s-7.5-3.358-7.5-7.5z" /></svg>
+                            </div>
+                            <h4>My Cloud Project (MCP)</h4>
+                            <p>Built a cloud-hosted UI & local agent for remote, secure developer project scaffolding.</p>
+                        </a>
+
+                        <!-- Project Card 4 -->
+                        <a href="https://github.com/nani-1205/ASSET_Quantum_VAULT" target="_blank" class="service-card project-card">
+                             <div class="service-icon-container">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.286zm0 13.036h.008v.008h-.008v-.008z" /></svg>
+                            </div>
+                            <h4>ASSET Quantum VAULT</h4>
+                            <p>A secure Flask app for centralized password and IT asset management with strong encryption.</p>
+                        </a>
+
+                        <!-- Project Card 5 -->
+                        <a href="https://github.com/nani-1205/gitlab-migration-webapp" target="_blank" class="service-card project-card">
+                            <div class="service-icon-container">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z" /></svg>
+                            </div>
+                            <h4>GitLab Migration UI Tool</h4>
+                            <p>Automated complex GitLab group and repository migrations with a web-based tool.</p>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section class="about" id="about">
+                <div class="container about-content">
+                    <div class="about-text">
+                        <h2 class="section-title">About Me</h2>
+                        <h3>My Journey in DevOps</h3>
+                        <p>With [Your Actual Number] years of experience, my career is centered on the principles of automation, reliability, and security. I thrive on solving complex operational challenges, whether it's architecting a multi-stage cloud environment from scratch, building a user-friendly tool to simplify a critical migration, or securing sensitive company assets.</p>
+                        <p>My work across projects like the GitLab Migration Tool, the S3 Data Dashboard, and ASSET Quantum VAULT demonstrates a commitment to not just implementing infrastructure, but truly understanding and improving the workflows that depend on it.</p>
+                    </div>
+                    <div class="about-stats">
+                         <div class="stat-item">
+                            <span class="number">[Your Number]+</span>
+                            <span class="label">Projects Completed</span>
                         </div>
                         <div class="stat-item">
-                            <span class="number">[Your Actual Number]</span>
-                            <span class="label">Projects Delivered.</span>
+                            <span class="number">2</span>
+                            <span class="label">Cloud Platforms (AWS & Azure)</span>
+                        </div>
+                         <div class="stat-item">
+                            <span class="number">5+</span>
+                            <span class="label">Custom Tools Built</span>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Services / Expertise Section - Grid layout for service cards -->
-        <section class="services" id="services">
-            <div class="container">
-                <h2 class="section-title">- My Expertise</h2>
-                <div class="services-grid">
-                    <div class="service-card primary">
-                        <i class="fas fa-cloud-upload-alt icon"></i> <!-- Example icon for Cloud Infra -->
-                        <h4>Cloud Infrastructure Automation.</h4>
-                        <p>Designing and deploying scalable cloud infrastructure using Infrastructure as Code tools like Terraform and ARM Templates on AWS & Azure.</p>
-                        <span>[Your Actual Number] Projects</span>
-                    </div>
-                    <div class="service-card">
-                        <i class="fas fa-code-branch icon"></i> <!-- Example icon for CI/CD -->
-                        <h4>CI/CD Pipeline Development.</h4>
-                        <p>Implementing robust Continuous Integration and Continuous Delivery pipelines for accelerated software delivery and improved quality.</p>
-                        <span>[Your Actual Number] Projects</span>
-                    </div>
-                    <div class="service-card">
-                        <i class="fas fa-exchange-alt icon"></i> <!-- Example icon for Migrations -->
-                        <h4>Platform & Data Migrations.</h4>
-                        <p>Facilitating seamless migration of applications, data, and critical platforms (like Git repositories) to cloud environments and new instances.</p>
-                        <span>[Your Actual Number] Projects</span>
-                    </div>
-                    <div class="service-card">
-                        <i class="fas fa-tools icon"></i> <!-- Example icon for Tooling -->
-                        <h4>Custom DevOps Tooling.</h4>
-                        <p>Developing bespoke applications and scripts to automate complex operational workflows and enhance developer experience.</p>
-                        <span>[Your Actual Number] Projects</span>
-                    </div>
-                    <div class="service-card">
-                        <i class="fas fa-shield-alt icon"></i> <!-- Example icon for Security -->
-                        <h4>Cloud Security & Compliance.</h4>
-                        <p>Implementing security best practices, access controls, and developing secure solutions for cloud environments and operational tooling.</p>
-                        <span>[Your Actual Number] Projects</span>
-                    </div>
-                    <div class="service-card">
-                        <i class="fas fa-terminal icon"></i> <!-- Example icon for Scripting -->
-                        <h4>Scripting & Automation.</h4>
-                        <p>Developing custom scripts (Python, Shell, PowerShell) and Ansible playbooks to automate operational tasks and workflows.</p>
-                        <span>[Your Actual Number] Projects</span>
+            <!-- Contact Section -->
+            <section class="contact" id="contact">
+                <div class="container">
+                    <h2 class="section-title">Get In Touch</h2>
+                    <p class="contact-subtitle">I'm always open to new challenges and collaborations. Whether you need help with cloud infrastructure, automation, or custom DevOps tooling, feel free to reach out.</p>
+                    <div class="contact-info">
+                        <a href="mailto:yetukurisaijagan@gmail.com" class="btn">Email Me</a>
+                        <a href="https://www.linkedin.com/in/sai-jagan-yetukuri-8b662a2b2/" target="_blank" class="btn secondary">View LinkedIn</a>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </main>
 
-        <!-- Portfolio / Works Section - Grid layout for project cards -->
-        <section class="portfolio" id="works">
-            <div class="container">
-                <h2 class="section-title">- Portfolio (Selected Projects & Innovations)</h2>
-                <div class="portfolio-grid">
-                    <div class="portfolio-item">
-                        <!-- Replace 'path/to/...' with your actual project image paths -->
-                        <img src="images/multi-stage-infra-mockup.jpg" alt="Multi-Stage AWS Infrastructure">
-                        <div class="item-info">
-                            <h4>Multi-Stage AWS Infrastructure.</h4>
-                            <p class="category">Cloud Automation, AWS, IaC</p>
-                            <p>Deployed a modular three-tier application architecture on AWS using Terraform, separating network and compute concerns for efficient management.</p>
-                            <a href="https://github.com/nani-1205/terraform-multi-stage" target="_blank" class="explore-btn">Explore More <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="portfolio-item">
-                        <img src="images/s3-migration-dashboard-screenshot.jpg" alt="Real-time S3 Migration Dashboard">
-                        <div class="item-info">
-                            <h4>Real-time AWS S3 Data Migration Dashboard.</h4>
-                            <p class="category">Data Migration, AWS, Python, UI</p>
-                            <p>Developed a Flask-based web application for secure, cross-account, and cross-region S3 data transfers with live progress monitoring.</p>
-                            <a href="https://github.com/nani-1205/s3" target="_blank" class="explore-btn">Explore More <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="portfolio-item">
-                        <img src="images/mcp-architecture-diagram.jpg" alt="My Cloud Project (MCP)">
-                        <div class="item-info">
-                            <h4>My Cloud Project (MCP).</h4>
-                            <p class="category">DevOps Tooling, Cloud-Local Automation, Security</p>
-                            <p>Built a unique cloud-hosted web interface and local agent system for remote, secure development project structure creation on local machines, prioritizing security.</p>
-                            <a href="https://github.com/nani-1205/MCP" target="_blank" class="explore-btn">Explore More <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="portfolio-item">
-                        <img src="images/asset-quantum-vault-screenshot.jpg" alt="ASSET Quantum VAULT">
-                        <div class="item-info">
-                            <h4>ASSET Quantum VAULT.</h4>
-                            <p class="category">Security Tooling, Web Apps, Operations</p>
-                            <p>Developed a secure Flask-based web application for centralized password and IT asset management, featuring strong encryption, user authentication, and reporting.</p>
-                            <a href="https://github.com/nani-1205/ASSET_Quantum_VAULT" target="_blank" class="explore-btn">Explore More <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="portfolio-item">
-                        <img src="images/gitlab-migration-ui-screenshot.jpg" alt="GitLab Migration Web UI Tool">
-                        <div class="item-info">
-                            <h4>GitLab Migration Web UI Tool.</h4>
-                            <p class="category">Platform Migration, DevOps Automation, Python</p>
-                            <p>Created a web-based Flask application to automate and monitor complex GitLab group, project, and repository migrations between instances.</p>
-                            <a href="https://github.com/nani-1205/gitlab-migration-webapp" target="_blank" class="explore-btn">Explore More <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
+        <!-- Footer -->
+        <footer>
+            <div class="container footer-content">
+                <p>© 2024 Sai Jagan Yetukuri. All Rights Reserved.</p>
+                <div class="social-links">
+                     <a href="https://github.com/nani-1205" target="_blank">GitHub</a>
+                     <a href="https://www.linkedin.com/in/sai-jagan-yetukuri-8b662a2b2/" target="_blank">LinkedIn</a>
                 </div>
             </div>
-        </section>
+        </footer>
 
-        <!-- Blog / News Section - List of blog posts -->
-        <section class="blog" id="blog">
-            <div class="container">
-                <h2 class="section-title">- Blog (What's new? My blog and news.)</h2>
-                <div class="blog-list">
-                    <div class="blog-item">
-                        <span class="date">Feb 26 - Blog</span>
-                        <a href="#">How to architect multi-stage deployments with Terraform.<i class="fas fa-arrow-right"></i></a>
-                    </div>
-                    <div class="blog-item">
-                        <span class="date">Feb 14 - Blog</span>
-                        <a href="#">Securing cross-account S3 migrations with IAM.<i class="fas fa-arrow-right"></i></a>
-                    </div>
-                    <div class="blog-item">
-                        <span class="date">Feb 9 - Blog</span>
-                        <a href="#">Designing secure cloud-to-local automation tools: Lessons from MCP.<i class="fas fa-arrow-right"></i></a>
-                    </div>
-                    <div class="blog-item">
-                        <span class="date">Jan 20 - Blog</span>
-                        <a href="#">Implementing real-time dashboards with Server-Sent Events.<i class="fas fa-arrow-right"></i></a>
-                    </div>
-                    <div class="blog-item">
-                        <span class="date">Jan 5 - Blog</span>
-                        <a href="#">Building Secure Operational Tools: Lessons from a Password Vault.<i class="fas fa-arrow-right"></i></a>
-                    </div>
-                    <div class="blog-item">
-                        <span class="date">Dec 18 - Blog</span>
-                        <a href="#">Automating GitLab Migrations: A Deep Dive into Process and Pitfalls.<i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonial Section - Single quote with navigation dots -->
-        <section class="testimonial">
-            <div class="container testimonial-content">
-                <div class="testimonial-quote">
-                    <p>"Sai Jagan consistently delivers robust, automated solutions that significantly enhance our operational efficiency and security posture. Their expertise in cloud platforms and dedication to clean, scalable architecture is truly exceptional."</p>
-                    <div class="attribution">
-                        <span class="name">[Name of Testimonial Provider]</span>
-                        <span class="title">Senior DevOps Manager at [Company Name]</span>
-                    </div>
-                </div>
-                <div class="testimonial-nav">
-                    <span class="dot active"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Final Contact Section - Form for project inquiries -->
-        <section class="final-contact">
-            <div class="container grid-2-col">
-                <div class="contact-text">
-                    <h2>Got a project? Let's talk.</h2>
-                    <p>I'm always open to new challenges and collaborations. Whether you need help with cloud infrastructure, automation, or custom DevOps tooling, feel free to reach out.</p>
-                    <a href="mailto:yetukurisaijagan@gmail.com" class="email-link">yetukurisaijagan@gmail.com <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="contact-form">
-                    <h2>Estimate your project? Let me know here.</h2>
-                    <form action="#" method="POST"> <!-- Add your form submission URL here -->
-                        <input type="text" name="name" placeholder="What's your name?" required>
-                        <input type="email" name="email" placeholder="Your fancy email" required>
-                        <textarea name="project_details" placeholder="Tell me about your project" required></textarea>
-                        <button type="submit" aria-label="Submit project details"><i class="fas fa-arrow-right"></i></button>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer Section - Copyright and social links -->
-    <footer>
-        <div class="container">
-            <p>Thanks for scrolling, that's all folks.</p>
-            <div class="social-icons">
-                <a href="https://github.com/nani-1205" target="_blank" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/sai-jagan-yetukuri-8b662a2b2/" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
-                <!-- Add other social icons as needed -->
-            </div>
-        </div>
-    </footer>
+    </div>
 </body>
 </html>
