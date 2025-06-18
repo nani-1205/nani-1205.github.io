@@ -22,6 +22,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Prevents sticky header from covering section titles on jump */
 }
 
 body {
@@ -77,12 +78,14 @@ p {
 
 /* --- HEADER & NAVIGATION --- */
 header {
-    background-color: var(--card-white);
+    background-color: rgba(255, 255, 255, 0.85); /* Slightly transparent */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
     padding: 1rem 0;
     border-bottom: 1px solid var(--border-color);
     position: sticky;
     top: 0;
     z-index: 1000;
+    transition: box-shadow 0.3s ease;
 }
 
 header .container {
@@ -120,13 +123,15 @@ header .container {
     transition: color 0.3s ease;
 }
 
+.nav-links a.active, /* Style for the active link */
 .nav-links a:hover {
     color: var(--accent-blue);
 }
 
+
 /* --- MAIN CONTENT --- */
 main {
-    padding: 4rem 0;
+    padding-top: 4rem;
 }
 
 /* --- HERO SECTION --- */
@@ -182,11 +187,11 @@ main {
 }
 
 /* --- SERVICES & PROJECTS SECTION STYLING --- */
-.services, .projects {
-    padding: 40px 0;
+.services, .projects, .about, .contact {
+    padding: 4rem 0;
 }
 
-.card-grid { /* Renamed from services-grid for general use */
+.card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 1.5rem;
@@ -200,7 +205,7 @@ main {
     box-shadow: 0 4px 15px var(--shadow-color);
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     text-align: left;
-    text-decoration: none; /* For project cards that are links */
+    text-decoration: none;
 }
 
 .service-card:hover, .service-card.active {
@@ -240,7 +245,6 @@ main {
 
 /* --- ABOUT SECTION --- */
 .about {
-    padding: 4rem 0;
     background-color: var(--card-white);
     border-top: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);
@@ -277,26 +281,49 @@ main {
 }
 
 /* --- CONTACT SECTION --- */
-.contact {
-    padding: 4rem 0;
-    text-align: center;
-}
-
 .contact-subtitle {
     max-width: 600px;
     margin: 0 auto 2rem auto;
     font-size: 1.1rem;
 }
 
-.contact-info {
-    display: flex;
-    justify-content: center;
+.contact-form-container {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: var(--card-white);
+    padding: 2rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--border-color);
+}
+
+.contact-form-container form {
+    display: grid;
     gap: 1rem;
+}
+
+.contact-form-container input,
+.contact-form-container textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    font-family: var(--font-body);
+    font-size: 1rem;
+}
+.contact-form-container input:focus,
+.contact-form-container textarea:focus {
+    outline: none;
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.25);
+}
+
+.contact-form-container button {
+    justify-self: end; /* Aligns button to the right in the grid */
+    width: auto;
 }
 
 /* --- FOOTER --- */
 footer {
-    background-color: var(--bg-light-gray);
     padding: 2rem 0;
     border-top: 1px solid var(--border-color);
 }
@@ -323,8 +350,18 @@ footer .social-links a:hover {
     color: var(--accent-blue);
 }
 
+/* --- ANIMATION & RESPONSIVE STYLES --- */
+.fade-in-element {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
 
-/* --- RESPONSIVE ADJUSTMENTS --- */
+.fade-in-element.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 @media (max-width: 992px) {
     .about-content {
         grid-template-columns: 1fr;
@@ -340,22 +377,9 @@ footer .social-links a:hover {
     h1 { font-size: 2.5rem; }
     h2 { font-size: 2rem; }
     
-    .nav-links {
-        display: none;
-    }
-    
-    header .container {
-        justify-content: center;
-    }
-
-    .card-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-info {
-        flex-direction: column;
-        align-items: center;
-    }
+    .nav-links { display: none; }
+    header .container { justify-content: center; }
+    .card-grid { grid-template-columns: 1fr; }
     
     .footer-content {
         flex-direction: column;
