@@ -1,5 +1,29 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+    // --- Page Loader Functionality ---
+    const pageLoader = document.querySelector('.page-loader');
+    const siteWrapper = document.querySelector('.site-wrapper');
+
+    if (pageLoader && siteWrapper) {
+        siteWrapper.classList.add('content-hidden'); 
+        
+        // Adjust timeout to match the intro animation's desired length
+        // e.g., 3000ms (3 seconds) for the draw + some orbit/pulse
+        setTimeout(() => {
+            pageLoader.classList.add('loader-hidden');
+            // Add a slight delay before showing content for a smoother transition out
+            setTimeout(() => {
+                siteWrapper.classList.remove('content-hidden');
+                document.body.style.overflow = 'auto'; 
+                highlightNavLink(); // Re-trigger highlight after content is fully visible
+            }, 300); // 0.3s delay for content reveal, adjust as needed
+        }, 3200); // Total loader display time 
+    } else {
+        if(siteWrapper) siteWrapper.classList.remove('content-hidden');
+        document.body.style.overflow = 'auto';
+    }
+
+
     // --- Smooth Scrolling for Navigation Links ---
     const navLinksForScroll = document.querySelectorAll('.main-nav a[href^="#"], .hero-buttons a[href^="#"], .my-approach-text a[href^="#"], .footer-links-column a[href^="#"], .logo[href^="#"]');
     navLinksForScroll.forEach(link => {
@@ -7,11 +31,10 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             let targetId = this.getAttribute('href');
             
-            // Special handling for modal triggers if they are also nav links
             if (this.classList.contains('modal-trigger')) {
                 const modalId = this.getAttribute('data-modal-id');
                 openModal(modalId);
-                return; // Stop further scroll processing if it's a modal trigger
+                return; 
             }
 
             let targetElement = document.querySelector(targetId);
@@ -28,6 +51,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const sections = document.querySelectorAll('section[id]');
     const navLinksObserver = document.querySelectorAll('.main-nav a'); 
     function highlightNavLink() {
+        if(siteWrapper && siteWrapper.classList.contains('content-hidden')) return; 
+
         let scrollY = window.pageYOffset;
         let currentSectionId = "";
         const headerOffsetForHighlight = (document.querySelector('.main-header').offsetHeight || 80) + 50;
@@ -50,7 +75,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     window.addEventListener('scroll', highlightNavLink);
-    highlightNavLink(); 
+    // highlightNavLink is now called after loader hides
+
 
     // --- Scroll-triggered Fade-in Animation ---
     const fadeInElements = document.querySelectorAll('.fade-in-element');
@@ -73,7 +99,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const modal = document.getElementById(modalId);
         if (modal) {
             modal.style.display = 'block';
-            // Add class to body to prevent scrolling
             document.body.classList.add('modal-open');
         }
     }
@@ -81,14 +106,13 @@ document.addEventListener('DOMContentLoaded', function() {
     function closeModal(modal) {
         if (modal) {
             modal.style.display = 'none';
-            // Remove class from body to allow scrolling
             document.body.classList.remove('modal-open');
         }
     }
 
     modalTriggers.forEach(trigger => {
         trigger.addEventListener('click', function(e) {
-            e.preventDefault(); // Prevent default anchor behavior
+            e.preventDefault(); 
             const modalId = this.getAttribute('data-modal-id');
             openModal(modalId);
         });
@@ -108,7 +132,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-     // Close modal with Escape key
     window.addEventListener('keydown', function(event) {
         if (event.key === 'Escape') {
             document.querySelectorAll('.modal').forEach(modal => {

@@ -27,7 +27,44 @@
 </head>
 <body>
 
-    <div class="site-wrapper">
+    <!-- NEW Full Page Loader/Intro Animation -->
+    <div class="page-loader">
+        <svg class="loader-svg-enhanced" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:var(--primary-blue-light);stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:var(--primary-blue-dark);stop-opacity:1" />
+                </linearGradient>
+                 <filter id="logoGlow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                    <feMerge>
+                        <feMergeNode in="coloredBlur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+            </defs>
+            
+            <!-- Abstract "SJ" like forms or techy shapes -->
+            <g class="loader-logo-group" filter="url(#logoGlow)">
+                <!-- Shape 1 (S-like) -->
+                <path class="logo-shape shape1" 
+                      d="M60,40 C40,40 30,50 30,65 S40,90 60,90 C80,90 90,100 90,115 S80,140 60,140" 
+                      stroke="url(#grad1)" stroke-width="8" fill="none" stroke-linecap="round"/>
+                
+                <!-- Shape 2 (J-like or abstract tech element) -->
+                <path class="logo-shape shape2" 
+                      d="M90,40 C110,40 120,50 120,65 S110,90 90,90 V120 L105,135"
+                      stroke="url(#grad1)" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+
+            <!-- Orbiting/pulsing elements -->
+            <circle class="orbit-dot od1" cx="75" cy="75" r="4" />
+            <circle class="orbit-dot od2" cx="75" cy="75" r="3" />
+            <circle class="orbit-dot od3" cx="75" cy="75" r="5" />
+        </svg>
+    </div>
+
+    <div class="site-wrapper content-hidden"> 
 
         <header class="main-header">
             <div class="container header-container">
@@ -81,7 +118,6 @@
                 </div>
             </section>
 
-            <!-- Problem Statement Section - SVGs UPDATED HERE -->
             <section class="problem-statement-section fade-in-element">
                 <div class="container">
                     <p class="section-tag">What's the challenge?</p>
@@ -89,7 +125,6 @@
                     <div class="problem-cards-grid">
                         <div class="problem-card">
                             <div class="svg-graphic-placeholder problem-svg animated-svg-container">
-                                <!-- Enhanced SVG for Infrastructure Instability -->
                                 <svg viewBox="-10 -10 120 120" class="problem-icon-svg instability-svg">
                                     <title>Icon representing infrastructure instability with shaky server blocks</title>
                                     <defs>
@@ -126,7 +161,6 @@
                         </div>
                         <div class="problem-card">
                            <div class="svg-graphic-placeholder problem-svg animated-svg-container">
-                                <!-- Enhanced SVG for Slow Deployment Cycles -->
                                 <svg viewBox="-10 -10 120 120" class="problem-icon-svg deployment-svg">
                                      <title>Icon representing slow deployment cycles with a stuck clock hand</title>
                                     <defs>
@@ -140,12 +174,10 @@
                                     <line x1="50" y1="50" x2="50" y2="20" class="clock-hand hour-hand"/>
                                     <line x1="50" y1="50" x2="75" y2="50" class="clock-hand minute-hand"/>
                                     <circle cx="50" cy="50" r="4" class="clock-center"/>
-                                    <!-- Ticks -->
                                     <line x1="50" y1="10" x2="50" y2="15" class="clock-tick"/>
                                     <line x1="90" y1="50" x2="85" y2="50" class="clock-tick"/>
                                     <line x1="50" y1="90" x2="50" y2="85" class="clock-tick"/>
                                     <line x1="10" y1="50" x2="15" y2="50" class="clock-tick"/>
-                                    <!-- "Stuck" visual element -->
                                     <path d="M70 45 L 80 40 L 75 30 L 65 35 Z" class="stuck-element"/>
                                 </svg>
                            </div>
@@ -161,7 +193,6 @@
                     </div>
                 </div>
             </section>
-            <!-- ... (rest of your HTML remains the same as the previous "Final Robust Webpage Code") ... -->
 
             <section class="my-approach-section fade-in-element" id="approach">
                 <div class="container my-approach-content-area">
@@ -199,15 +230,11 @@
                                     </linearGradient>
                                 </defs>
                                 <path class="approach-bg-shape" d="M50,5 C20,20 10,70 50,95 S80,80 90,30 C70,10 60,0 50,5 Z" fill="url(#approachGrad)" fill-opacity="0.2"/>
-                                
-                                <!-- Central Gear -->
                                 <g class="approach-gear-group main-gear">
                                     <circle cx="50" cy="50" r="20" class="gear-outline"/>
                                     <circle cx="50" cy="50" r="5" class="gear-center"/>
-                                    <!-- Gear Teeth -->
                                     <path d="M50 30 L46 25 L54 25 Z M50 70 L46 75 L54 75 Z M30 50 L25 46 L25 54 Z M70 50 L75 46 L75 54 Z M36 36 L29 32 L32 29 Z M64 64 L71 68 L68 71 Z M36 64 L29 68 L32 71 Z M64 36 L71 32 L68 29 Z" class="gear-teeth"/>
                                 </g>
-                                <!-- Smaller Orbiting Gears/Elements -->
                                 <g class="approach-orbiting-elements">
                                     <circle cx="20" cy="30" r="6" class="orbiting-element oe1"/>
                                     <rect x="70" y="60" width="12" height="12" rx="3" class="orbiting-element oe2"/>
