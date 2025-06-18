@@ -23,14 +23,12 @@
 
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
     <div class="site-wrapper">
 
-        <!-- Header Section -->
         <header class="main-header">
             <div class="container header-container">
                 <a href="#home" class="logo" aria-label="Homepage">Sai Jagan Yetukuri</a>
@@ -47,7 +45,6 @@
         </header>
 
         <main>
-            <!-- Hero Section -->
             <section class="hero-section" id="home">
                 <div class="container hero-content-area">
                     <div class="hero-text-content">
@@ -59,44 +56,53 @@
                         </div>
                     </div>
                     <div class="hero-graphic">
-                        <!-- SVG Hero Graphic Concept -->
                         <div class="svg-graphic-placeholder hero-svg">
                             <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
                                 <defs>
-                                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                                        <stop offset="0%" style="stop-color:var(--primary-blue);stop-opacity:1" />
-                                        <stop offset="100%" style="stop-color:var(--primary-blue-dark);stop-opacity:1" />
+                                    <linearGradient id="gradHeroPath" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" class="hero-path-color-stop1" />
+                                        <stop offset="50%" class="hero-path-color-stop2" />
+                                        <stop offset="100%" class="hero-path-color-stop3" />
                                     </linearGradient>
                                 </defs>
-                                <path d="M 20 70 Q 50 10, 80 70 T 140 70 T 180 70" stroke="url(#grad1)" stroke-width="4" fill="none" class="animated-path" />
-                                <circle cx="20" cy="70" r="5" fill="var(--primary-blue)" class="path-dot-start"/>
-                                <circle cx="180" cy="70" r="5" fill="var(--primary-blue-dark)" class="path-dot-end"/>
-                                <rect x="40" y="30" width="30" height="20" rx="3" fill="rgba(0,123,255,0.2)" />
-                                <rect x="90" y="50" width="40" height="25" rx="3" fill="rgba(0,123,255,0.3)" />
-                                <rect x="130" y="20" width="25" height="30" rx="3" fill="rgba(0,123,255,0.15)" />
+                                <path d="M 10 80 Q 40 20, 70 60 T 130 60 Q 160 20, 190 80" stroke="url(#gradHeroPath)" stroke-width="5" fill="none" class="animated-hero-path" />
+                                <circle cx="10" cy="80" r="6" class="path-dot-start hero-dot"><animate attributeName="fill" values="var(--primary-blue);var(--primary-blue-dark);var(--primary-blue)" dur="3s" repeatCount="indefinite"/></circle>
+                                <circle cx="190" cy="80" r="6" class="path-dot-end hero-dot"><animate attributeName="fill" values="var(--primary-blue-dark);var(--primary-blue);var(--primary-blue-dark)" dur="3s" repeatCount="indefinite"/></circle>
+                                
+                                <g class="hero-blocks">
+                                    <rect x="35" y="25" width="25" height="15" rx="2" class="hero-block block1"><animateTransform attributeName="transform" type="translate" values="0 0; 0 -5; 0 0" dur="2s" repeatCount="indefinite"/></rect>
+                                    <rect x="80" y="40" width="35" height="20" rx="2" class="hero-block block2"><animateTransform attributeName="transform" type="translate" values="0 0; 0 5; 0 0" dur="2.2s" repeatCount="indefinite"/></rect>
+                                    <rect x="140" y="20" width="20" height="25" rx="2" class="hero-block block3"><animateTransform attributeName="transform" type="translate" values="0 0; 0 -5; 0 0" dur="1.8s" repeatCount="indefinite"/></rect>
+                                </g>
                             </svg>
-                             <p class="svg-placeholder-text">DevOps Workflow Visualization</p>
+                             <p class="svg-placeholder-text">Visualizing DevOps Efficiency</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Problem Statement Section -->
             <section class="problem-statement-section fade-in-element">
                 <div class="container">
                     <p class="section-tag">What's the challenge?</p>
                     <h2>Manual Workflows & Siloed Systems Cause Delays</h2>
                     <div class="problem-cards-grid">
                         <div class="problem-card">
-                            <div class="svg-graphic-placeholder problem-svg">
-                                <i class="fas fa-server fa-3x"></i> <!-- Icon for Instability -->
+                            <div class="svg-graphic-placeholder problem-svg animated-svg-container">
+                                <svg viewBox="0 0 64 64" class="problem-icon-svg">
+                                    <path class="svg-animate svg-pulse-color" d="M51.8 43.4H12.2c-1.1 0-2-.9-2-2V22.6c0-1.1.9-2 2-2h39.6c1.1 0 2 .9 2 2v18.8c0 1.1-.9 2-2 2zM10.2 16.4h43.6M32 16.4v-5m11.9 21H20.1m23.8 0H20.1m11.9-11.9v23.8m0-23.8v23.8"/>
+                                    <circle class="svg-animate svg-scale-pulse" cx="32" cy="10" r="2"/>
+                                </svg>
                             </div>
                             <h4>Infrastructure Instability</h4>
                             <p>Manual configurations and lack of IaC lead to inconsistencies and downtime.</p>
                         </div>
                         <div class="problem-card">
-                           <div class="svg-graphic-placeholder problem-svg">
-                                <i class="fas fa-shipping-fast fa-3x"></i> <!-- Icon for Slow Deployment -->
+                           <div class="svg-graphic-placeholder problem-svg animated-svg-container">
+                                <svg viewBox="0 0 64 64" class="problem-icon-svg">
+                                   <path class="svg-animate svg-draw-line" d="M10 32h12m10 0h12m-30-8l6-6m-6 12l6 6m18-12l-6-6m6 12l-6 6"/>
+                                   <path class="svg-animate svg-pulse-color" d="M54 32L42 20M54 32L42 44M10 32l12-12M10 32l12 12"/>
+                                   <rect class="svg-animate svg-color-cycle" x="26" y="26" width="12" height="12" rx="2"/>
+                                </svg>
                            </div>
                             <h4>Slow Deployment Cycles</h4>
                             <p>Lack of CI/CD and automation bottlenecks development and release speed.</p>
@@ -111,7 +117,6 @@
                 </div>
             </section>
 
-            <!-- My Approach / Solution Section -->
             <section class="my-approach-section fade-in-element" id="approach">
                 <div class="container my-approach-content-area">
                     <div class="my-approach-text">
@@ -137,16 +142,19 @@
                         </div>
                         <a href="#offerings" class="btn btn-primary">Explore My Offerings</a>
                     </div>
-                    <div class="my-approach-graphic">
+                    <div class="my-approach-graphic animated-svg-container">
                         <div class="svg-graphic-placeholder approach-svg">
-                             <i class="fas fa-rocket fa-4x"></i> <!-- Icon for Automation/Solution -->
-                             <p class="svg-placeholder-text">Automated Solutions</p>
+                            <svg viewBox="0 0 100 100" class="approach-icon-svg">
+                                <path class="svg-animate svg-color-cycle-alt" d="M50 10 C 20 25, 20 75, 50 90 S 80 75, 80 25 Z" fill-opacity="0.2"/>
+                                <path class="svg-animate svg-draw-line" d="M30 50 L70 50 M50 30 L50 70 M35 35 L65 65 M35 65 L65 35" stroke-width="3"/>
+                                <circle class="svg-animate svg-scale-pulse" cx="50" cy="50" r="10" fill-opacity="0.5"/>
+                           </svg>
+                           <p class="svg-placeholder-text">Strategic Automation</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Key Offerings / Projects Section -->
             <section class="key-offerings-section fade-in-element" id="offerings">
                 <div class="container">
                     <p class="section-tag">Solutions</p>
@@ -198,18 +206,16 @@
                             <div class="offering-card-content">
                                 <h4>Ansible & Terraform Solutions</h4>
                                 <p>Expertly crafting 20+ playbooks and modules for comprehensive infrastructure automation.</p>
-                                <!-- <a href="#contact-cta" class="learn-more-link">Discuss Your Needs →</a> -->
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
             
-            <!-- About Me Section with Image -->
             <section class="about-me-section fade-in-element" id="about-me">
                 <div class="container about-me-grid">
                     <div class="about-me-image">
-                        <img src="images/sai-jagan-photo.jpg" alt="Sai Jagan Yetukuri"> <!-- YOUR PERSONAL PHOTO HERE -->
+                        <img src="images/sai-jagan-photo.jpg" alt="Sai Jagan Yetukuri">
                     </div>
                     <div class="about-me-text">
                         <p class="section-tag">About Me</p>
@@ -234,7 +240,6 @@
                 </div>
             </section>
 
-            <!-- Tech Stack / Integrations (Simplified) -->
             <section class="tech-stack-section fade-in-element">
                  <div class="container">
                     <p class="section-tag">My Expertise</p>
@@ -254,7 +259,6 @@
                  </div>
             </section>
 
-            <!-- Final Call to Action Section -->
             <section class="final-cta-section fade-in-element" id="contact-cta">
                 <div class="container cta-content">
                     <h2>Ready to Elevate Your DevOps?</h2>
@@ -267,7 +271,6 @@
             </section>
         </main>
 
-        <!-- Footer -->
         <footer class="main-footer">
             <div class="container footer-grid">
                 <div class="footer-about">
@@ -293,15 +296,35 @@
                  <div class="footer-links-column">
                     <h4>Legal</h4>
                     <ul>
-                        <li><a href="#">Privacy Policy (Sample)</a></li>
-                        <li><a href="#">Terms of Service (Sample)</a></li>
+                        <li><a href="#privacy-policy-modal" class="modal-trigger" data-modal-id="privacy-policy-modal">Privacy Policy</a></li>
+                        <li><a href="#terms-of-service-modal" class="modal-trigger" data-modal-id="terms-of-service-modal">Terms of Service</a></li>
                     </ul>
                 </div>
             </div>
             <div class="container footer-bottom">
-                <p>© 2025 Sai Jagan Yetukuri. All Rights Reserved.</p>
+                <p>© 2024 Sai Jagan Yetukuri. All Rights Reserved.</p>
             </div>
         </footer>
+    </div>
+
+    <!-- Modals for Privacy Policy and Terms of Service -->
+    <div id="privacy-policy-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">×</span>
+            <h2>Privacy Policy</h2>
+            <p>We value your privacy. Any personal information collected through this website (such as your name, email, or contact details) will only be used to respond to inquiries or provide services requested by you. We do not sell or share your data with third parties without your consent.</p>
+        </div>
+    </div>
+
+    <div id="terms-of-service-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">×</span>
+            <h2>Terms of Service</h2>
+            <p>All content provided is for informational purposes only and may be updated or changed without notice.</p>
+            <p>You may not reproduce, redistribute, or exploit any content without prior written permission.</p>
+            <p>We are not responsible for any third-party content or links featured on this site.</p>
+            <p>Your use of this site constitutes acceptance of these terms and any updates.</p>
+        </div>
     </div>
 
     <script src="script.js" defer></script>
