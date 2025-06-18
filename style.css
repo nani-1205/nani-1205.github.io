@@ -2,9 +2,9 @@
 :root {
     --primary-blue: #007bff; 
     --primary-blue-dark: #0056b3;
-    --primary-blue-light: #66b0ff;
-    --accent-cyan: #0dcaf0;
-    --accent-teal: #20c997;
+    --primary-blue-light: #66b0ff; /* Lighter blue for gradients/accents */
+    --accent-cyan: #0dcaf0; /* Cyan for some animations */
+    --accent-teal: #20c997; /* Teal for some animations */
     --text-dark: #212529;
     --text-light: #ffffff;
     --text-secondary: #5a6572; 
@@ -25,22 +25,24 @@
     --border-radius: 0.75rem; /* 12px */
 }
 
+/* Reset and Base Styles */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 100px; }
 body { font-family: var(--font-primary); color: var(--text-dark); background-color: var(--bg-main); line-height: 1.7; font-weight: var(--font-weight-normal); }
 .site-wrapper { overflow-x: hidden; }
 .container { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
 
+/* Typography & Links */
 h1, h2, h3, h4 { font-family: var(--font-primary); color: var(--text-dark); line-height: 1.3; font-weight: var(--font-weight-bold); }
 h1 { font-size: 3rem; margin-bottom: 1.5rem; font-weight: var(--font-weight-extrabold); } 
 h2 { font-size: 2.25rem; margin-bottom: 1rem; text-align: center; font-weight: var(--font-weight-bold); } 
 h3 { font-size: 1.75rem; margin-bottom: 0.75rem; font-weight: var(--font-weight-semibold); } 
 h4 { font-size: 1.25rem; margin-bottom: 0.5rem; font-weight: var(--font-weight-semibold); } 
-
 p { margin-bottom: 1.5rem; color: var(--text-secondary); font-size: 1rem; }
 a { color: var(--primary-blue); text-decoration: none; transition: color 0.3s ease; }
 a:hover { color: var(--primary-blue-dark); }
 
+/* Buttons */
 .btn { display: inline-block; padding: 12px 28px; border-radius: var(--border-radius); font-weight: var(--font-weight-semibold); text-decoration: none; transition: all 0.3s ease; font-size: 1rem; border: 1px solid transparent; text-align: center; }
 .btn-primary { background-color: var(--primary-blue); color: var(--text-light); border-color: var(--primary-blue); }
 .btn-primary:hover { background-color: var(--primary-blue-dark); border-color: var(--primary-blue-dark); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3); }
@@ -70,38 +72,25 @@ a:hover { color: var(--primary-blue-dark); }
 .hero-text-content p { font-size: 1.125rem; color: var(--text-secondary); max-width: 550px; margin-bottom: 2rem; }
 .hero-buttons { display: flex; gap: 1rem; }
 .hero-graphic { display: flex; align-items: center; justify-content: center; }
-.svg-graphic-placeholder { width: 100%; max-width: 450px; height: auto; min-height: 250px; background-color: var(--bg-offset); border-radius: var(--border-radius); display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px solid var(--border-light); position: relative; overflow: hidden;}
-.svg-graphic-placeholder.hero-svg svg { max-width: 80%; max-height: 150px; }
-.svg-placeholder-text { font-size: 0.9rem; color: var(--text-secondary); margin-top: 1rem; font-style: italic; z-index: 1; }
+.svg-graphic-placeholder { width: 100%; max-width: 500px; height: auto; min-height: 300px; /* Increased size */ background-color: var(--bg-offset); border-radius: var(--border-radius); display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px solid var(--border-light); position: relative; overflow: hidden;}
+.svg-graphic-placeholder.hero-svg svg { width: 100%; height: 100%; } /* SVG takes full placeholder space */
 
-.animated-hero-path {
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
-    animation: drawHeroPath 6s ease-in-out forwards infinite alternate;
-}
-@keyframes drawHeroPath {
-    0% { stroke-dashoffset: 1000; }
-    50% { stroke-dashoffset: 0; }
-    100% { stroke-dashoffset: -1000; }
-}
-.hero-dot { animation: pulseColorDot 3s ease-in-out infinite; }
-@keyframes pulseColorDot {
-    0%, 100% { fill: var(--primary-blue); r: 6;}
-    50% { fill: var(--accent-cyan); r: 8;}
-}
-.hero-block { fill: rgba(0,123,255,0.1); animation: floatBlock 4s ease-in-out infinite alternate; }
-.hero-block.block1 { animation-delay: 0s; }
-.hero-block.block2 { animation-delay: 0.5s; }
-.hero-block.block3 { animation-delay: 1s; }
-@keyframes floatBlock {
-    0% { transform: translateY(0); opacity: 0.1; }
-    50% { transform: translateY(-8px); opacity: 0.25; }
-    100% { transform: translateY(0); opacity: 0.1; }
-}
+.animated-hero-path { stroke-dasharray: 2000; stroke-dashoffset: 2000; animation: drawHeroPath 7s ease-in-out forwards infinite alternate; }
+@keyframes drawHeroPath { 0% { stroke-dashoffset: 2000; } 50% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -2000; } }
+.hero-dot { animation: pulseColorDotHero 3.5s ease-in-out infinite; }
+@keyframes pulseColorDotHero { 0%, 100% { fill: var(--primary-blue); r: 7;} 50% { fill: var(--accent-cyan); r: 9;} }
+.hero-block { fill: var(--primary-blue); animation: floatBlockHero 4s ease-in-out infinite alternate; }
+.hero-block.block1 { animation-delay: 0s; opacity: 0.3; }
+.hero-block.block2 { animation-delay: 0.7s; opacity: 0.4; }
+.hero-block.block3 { animation-delay: 1.2s; opacity: 0.25; }
+@keyframes floatBlockHero { 0% { transform: translateY(0); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0); } }
 .hero-path-color-stop1 { stop-color: var(--primary-blue); }
-.hero-path-color-stop2 { stop-color: var(--accent-cyan); animation: heroPathColor2 6s infinite alternate; }
+.hero-path-color-stop2 { stop-color: var(--accent-cyan); animation: heroPathColor2 7s infinite alternate; }
 .hero-path-color-stop3 { stop-color: var(--accent-teal); }
 @keyframes heroPathColor2 { 0%, 100% {stop-color: var(--accent-cyan);} 50% {stop-color: var(--primary-blue-light);} }
+.hero-bg-line1 { animation: heroBgLineAnim 10s linear infinite alternate; }
+.hero-bg-line2 { animation: heroBgLineAnim 12s linear infinite alternate-reverse; }
+@keyframes heroBgLineAnim { 0% { stroke-dasharray: 5 15; stroke-dashoffset: 0; } 100% { stroke-dasharray: 5 15; stroke-dashoffset: 100; } }
 
 
 /* --- PROBLEM STATEMENT SECTION --- */
@@ -110,8 +99,16 @@ a:hover { color: var(--primary-blue-dark); }
 .problem-cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem; }
 .problem-card { background-color: var(--bg-main); padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--card-shadow); text-align: left; transition: transform 0.3s ease; }
 .problem-card:hover { transform: translateY(-5px); }
-.svg-graphic-placeholder.problem-svg { min-height: 150px; margin-bottom: 1.5rem; color: var(--primary-blue); display: flex; align-items: center; justify-content: center; }
-.problem-icon-svg { width: 60px; height: 60px; stroke: var(--primary-blue); stroke-width: 2; fill: none; }
+.svg-graphic-placeholder.problem-svg { min-height: 180px; /* Increased size */ margin-bottom: 1.5rem; color: var(--primary-blue); display: flex; align-items: center; justify-content: center; }
+.problem-icon-svg { width: 80px; height: 80px; /* Increased size */ stroke: var(--primary-blue); stroke-width: 2; fill: none; }
+.problem-block { fill: var(--primary-blue); opacity: 0.2; animation: problemBlockAnim 3s ease-in-out infinite alternate; }
+.problem-block.delay1 { animation-delay: 0.3s; }
+.problem-block.delay2 { animation-delay: 0.6s; }
+@keyframes problemBlockAnim { 0% { opacity: 0.2; transform: translateY(0); } 50% { opacity: 0.4; transform: translateY(-3px); } 100% { opacity: 0.2; transform: translateY(0); } }
+.problem-connector { stroke: var(--primary-blue); opacity: 0.5; }
+.problem-center-dot { fill: var(--primary-blue); animation: pulseColorDotHero 3s ease-in-out infinite; }
+.problem-arrows path { stroke: var(--primary-blue); animation: problemArrowPath 2s ease-in-out infinite alternate; }
+@keyframes problemArrowPath { 0% { transform: translateX(0); opacity: 0.5;} 50% { transform: translateX(3px); opacity: 1;} 100% { transform: translateX(0); opacity: 0.5;} }
 .problem-card h4 { margin-bottom: 0.75rem; }
 .problem-tags { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.75rem; }
 .problem-tags span { background-color: #ffebee; color: #c62828; padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.85rem; font-weight: var(--font-weight-medium); display: flex; align-items: center; }
@@ -132,9 +129,12 @@ a:hover { color: var(--primary-blue-dark); }
 .feature-icon i { font-size: 1.5rem; }
 .feature-highlight h4 { color: var(--text-light); margin-bottom: 0.5rem; }
 .feature-highlight p { font-size: 0.95rem; color: #ced4da; margin-bottom: 0; }
-.svg-graphic-placeholder.approach-svg { color: var(--primary-blue); border-color: rgba(255,255,255,0.1); background-color: rgba(255,255,255,0.05); }
-.svg-graphic-placeholder.approach-svg .svg-placeholder-text { color: #adb5bd;}
-.approach-icon-svg { width: 80px; height: 80px; stroke: var(--primary-blue); fill: none; }
+.svg-graphic-placeholder.approach-svg { min-height: 300px; /* Increased size */ color: var(--primary-blue); border-color: rgba(255,255,255,0.1); background-color: rgba(255,255,255,0.05); }
+.approach-icon-svg { width: 100%; height: 100%; /* SVG takes full placeholder space */ stroke: var(--primary-blue); fill: none; }
+.approach-gear1 { animation: rotateGear 10s linear infinite; transform-origin: center; stroke: var(--text-light); opacity: 0.7;}
+.approach-gear2 { animation: rotateGear 8s linear infinite reverse; transform-origin: center; stroke: var(--accent-cyan); opacity: 0.6;}
+.approach-gear3 { animation: rotateGear 12s linear infinite; transform-origin: center; stroke: var(--accent-teal); opacity: 0.8;}
+@keyframes rotateGear { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
 
 /* --- KEY OFFERINGS / PROJECTS SECTION --- */
@@ -144,7 +144,7 @@ a:hover { color: var(--primary-blue-dark); }
 .offering-card { background-color: var(--bg-main); border-radius: var(--border-radius); box-shadow: var(--card-shadow); overflow: hidden; display: flex; flex-direction: column; transition: box-shadow 0.3s ease, transform 0.3s ease; text-align: left; }
 .offering-card:hover { box-shadow: var(--card-shadow-hover); transform: translateY(-5px); }
 .offering-card-icon { color: var(--primary-blue); padding: 1.75rem 1.75rem 0 1.75rem; transition: transform 0.3s ease; }
-.offering-card:hover .offering-card-icon { transform: scale(1.1) translateY(-3px); }
+.offering-card:hover .offering-card-icon { transform: scale(1.1) translateY(-3px) rotate(5deg); }
 .offering-card-content { padding: 0.5rem 1.75rem 1.75rem 1.75rem; flex-grow: 1; display: flex; flex-direction: column; }
 .offering-card-content h4 { margin-bottom: 0.75rem; }
 .offering-card-content p { font-size: 0.95rem; flex-grow: 1; margin-bottom: 1.5rem; }
@@ -168,13 +168,30 @@ a:hover { color: var(--primary-blue-dark); }
 .tech-stack-section { padding: 5rem 0; background-color: var(--bg-offset); }
 .tech-logos-grid { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 2rem; }
 .tech-logo-item { text-align: center; opacity: 0.8; transition: opacity 0.3s ease, transform 0.3s ease; color: var(--text-secondary); }
-.tech-logo-item:hover { opacity: 1; transform: scale(1.1) translateY(-3px); color: var(--primary-blue); }
-.tech-logo-item i { font-size: 2.5rem; margin-bottom: 0.5rem;  } 
+.tech-logo-item:hover { opacity: 1; transform: scale(1.1) translateY(-3px); }
+.tech-logo-item i { font-size: 2.5rem; margin-bottom: 0.5rem;  animation: techIconColorCycle 5s linear infinite; } 
+.tech-logo-item:hover i { animation-play-state: paused; color: var(--primary-blue-dark) !important; } /* Important to override animation */
 .tech-logo-item span { display: block; font-size: 0.85rem; font-weight: var(--font-weight-medium); }
+@keyframes techIconColorCycle {
+    0%, 100% { color: var(--primary-blue); }
+    25% { color: var(--accent-cyan); }
+    50% { color: var(--primary-blue-light); }
+    75% { color: var(--accent-teal); }
+}
+/* Stagger animation for tech icons */
+.tech-logo-item:nth-child(2) i { animation-delay: 0.2s; }
+.tech-logo-item:nth-child(3) i { animation-delay: 0.4s; }
+.tech-logo-item:nth-child(4) i { animation-delay: 0.6s; }
+.tech-logo-item:nth-child(5) i { animation-delay: 0.8s; }
+.tech-logo-item:nth-child(6) i { animation-delay: 1.0s; }
+.tech-logo-item:nth-child(7) i { animation-delay: 1.2s; }
+.tech-logo-item:nth-child(8) i { animation-delay: 1.4s; }
+.tech-logo-item:nth-child(9) i { animation-delay: 1.6s; }
+.tech-logo-item:nth-child(10) i { animation-delay: 1.8s; }
 
 
 /* --- FINAL CTA SECTION --- */
-.final-cta-section { padding: 5rem 0; background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%); color: var(--text-light); text-align: center; } /* Gradient background */
+.final-cta-section { padding: 5rem 0; background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%); color: var(--text-light); text-align: center; } 
 .final-cta-section h2, .final-cta-section p { color: var(--text-light); }
 .final-cta-section h2 { font-size: 2.5rem; margin-bottom: 1rem; }
 .final-cta-section p { font-size: 1.125rem; max-width: 600px; margin-left: auto; margin-right: auto; margin-bottom: 2.5rem; opacity: 0.9; }
@@ -209,8 +226,10 @@ a:hover { color: var(--primary-blue-dark); }
 .fade-in-element.is-visible { opacity: 1; transform: translateY(0); }
 
 /* SVG Animation Keyframes */
+.svg-animate { fill: none; stroke: var(--primary-blue); stroke-width: 2; }
 @keyframes drawLine { to { stroke-dashoffset: 0; } }
 .svg-draw-line { stroke-dasharray: 100; stroke-dashoffset: 100; animation: drawLine 2s ease-out forwards; animation-delay: 0.5s; }
+.svg-draw-line-slow { stroke-dasharray: 200; stroke-dashoffset: 200; animation: drawLine 4s ease-out forwards; animation-delay: 0.8s; }
 
 @keyframes scalePulse { 0%, 100% { transform: scale(1); opacity: 0.7; } 50% { transform: scale(1.2); opacity: 1; } }
 .svg-scale-pulse { transform-origin: center; animation: scalePulse 2.5s ease-in-out infinite; }
@@ -218,23 +237,11 @@ a:hover { color: var(--primary-blue-dark); }
 @keyframes pulseColor { 0%, 100% { stroke: var(--primary-blue); } 50% { stroke: var(--accent-cyan); } }
 .svg-pulse-color { animation: pulseColor 3s ease-in-out infinite; }
 
-@keyframes colorCycle {
-    0%, 100% { fill: var(--primary-blue); }
-    33% { fill: var(--accent-cyan); }
-    66% { fill: var(--accent-teal); }
-}
+@keyframes colorCycle { 0%, 100% { fill: var(--primary-blue); } 33% { fill: var(--accent-cyan); } 66% { fill: var(--accent-teal); } }
 .svg-color-cycle { fill-opacity: 0.7; animation: colorCycle 5s ease-in-out infinite; }
 .svg-color-cycle-alt { stroke: var(--primary-blue); animation: colorCycleAlt 5s ease-in-out infinite; }
-@keyframes colorCycleAlt {
-    0%, 100% { stroke: var(--primary-blue); }
-    33% { stroke: var(--accent-cyan); }
-    66% { stroke: var(--accent-teal); }
-}
-.animated-svg-container:hover svg path, 
-.animated-svg-container:hover svg circle,
-.animated-svg-container:hover svg rect {
-    stroke: var(--primary-blue-dark); /* Darker on hover */
-}
+@keyframes colorCycleAlt { 0%, 100% { stroke: var(--primary-blue); } 33% { stroke: var(--accent-cyan); } 66% { stroke: var(--accent-teal); } }
+.animated-svg-container:hover svg path, .animated-svg-container:hover svg circle, .animated-svg-container:hover svg rect { /* stroke: var(--primary-blue-dark); */ /* Removed to let individual animations control hover */ }
 
 
 @media (max-width: 992px) {
@@ -256,9 +263,9 @@ a:hover { color: var(--primary-blue-dark); }
 @media (max-width: 768px) {
     .main-nav, .header-cta { display: none; }
     .header-container { justify-content: center; }
-    .offerings-grid, .tech-logos-grid, .card-grid { grid-template-columns: 1fr; }
+    .offerings-grid, .tech-logos-grid, .card-grid, .problem-cards-grid { grid-template-columns: 1fr; }
     .tech-logos-grid { gap: 1.5rem; }
-    .tech-logo-item i { font-size: 2rem; }
+    .tech-logo-item i { font-size: 2rem; } /* Slightly smaller for mobile */
     .contact-buttons-cta { flex-direction: column; gap: 0.75rem; align-items: center;}
     .final-cta-section .btn { width: 100%; max-width: 300px; }
     .footer-grid { text-align: center; }
@@ -267,4 +274,11 @@ a:hover { color: var(--primary-blue-dark); }
     .about-me-image { margin-bottom: 1rem; }
     .about-me-stats {flex-direction: column;}
     .stat-item {flex-basis: auto;}
+    .svg-graphic-placeholder {min-height: 200px;} /* Adjust placeholder height for mobile */
+    .svg-graphic-placeholder.hero-svg {min-height: 200px;}
+    .svg-graphic-placeholder.problem-svg {min-height: 120px;}
+    .problem-icon-svg { width: 50px; height: 50px; }
+    .svg-graphic-placeholder.approach-svg {min-height: 200px;}
+    .approach-icon-svg {width: 70px; height: 70px;}
+
 }

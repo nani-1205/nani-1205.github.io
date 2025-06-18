@@ -6,11 +6,14 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             let targetId = this.getAttribute('href');
-            // Special handling for modal triggers
-            if (targetId.includes('-modal')) {
-                openModal(targetId.substring(1)); // remove #
-                return;
+            
+            // Special handling for modal triggers if they are also nav links
+            if (this.classList.contains('modal-trigger')) {
+                const modalId = this.getAttribute('data-modal-id');
+                openModal(modalId);
+                return; // Stop further scroll processing if it's a modal trigger
             }
+
             let targetElement = document.querySelector(targetId);
             if (targetElement) {
                 const headerOffset = document.querySelector('.main-header').offsetHeight || 80;
@@ -70,18 +73,22 @@ document.addEventListener('DOMContentLoaded', function() {
         const modal = document.getElementById(modalId);
         if (modal) {
             modal.style.display = 'block';
+            // Add class to body to prevent scrolling
+            document.body.classList.add('modal-open');
         }
     }
 
     function closeModal(modal) {
         if (modal) {
             modal.style.display = 'none';
+            // Remove class from body to allow scrolling
+            document.body.classList.remove('modal-open');
         }
     }
 
     modalTriggers.forEach(trigger => {
         trigger.addEventListener('click', function(e) {
-            e.preventDefault();
+            e.preventDefault(); // Prevent default anchor behavior
             const modalId = this.getAttribute('data-modal-id');
             openModal(modalId);
         });
@@ -94,12 +101,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Close modal if backdrop is clicked
     window.addEventListener('click', function(event) {
         document.querySelectorAll('.modal').forEach(modal => {
             if (event.target == modal) {
                 closeModal(modal);
             }
         });
+    });
+     // Close modal with Escape key
+    window.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            document.querySelectorAll('.modal').forEach(modal => {
+                if (modal.style.display === 'block') {
+                    closeModal(modal);
+                }
+            });
+        }
     });
 });

@@ -57,25 +57,32 @@
                     </div>
                     <div class="hero-graphic">
                         <div class="svg-graphic-placeholder hero-svg">
-                            <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Enhanced Hero SVG -->
+                            <svg viewBox="0 0 250 120" xmlns="http://www.w3.org/2000/svg">
                                 <defs>
-                                    <linearGradient id="gradHeroPath" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <linearGradient id="gradHeroPathEnhanced" x1="0%" y1="0%" x2="100%" y2="0%">
                                         <stop offset="0%" class="hero-path-color-stop1" />
                                         <stop offset="50%" class="hero-path-color-stop2" />
                                         <stop offset="100%" class="hero-path-color-stop3" />
                                     </linearGradient>
                                 </defs>
-                                <path d="M 10 80 Q 40 20, 70 60 T 130 60 Q 160 20, 190 80" stroke="url(#gradHeroPath)" stroke-width="5" fill="none" class="animated-hero-path" />
-                                <circle cx="10" cy="80" r="6" class="path-dot-start hero-dot"><animate attributeName="fill" values="var(--primary-blue);var(--primary-blue-dark);var(--primary-blue)" dur="3s" repeatCount="indefinite"/></circle>
-                                <circle cx="190" cy="80" r="6" class="path-dot-end hero-dot"><animate attributeName="fill" values="var(--primary-blue-dark);var(--primary-blue);var(--primary-blue-dark)" dur="3s" repeatCount="indefinite"/></circle>
+                                <!-- Main animated path -->
+                                <path d="M 20 90 Q 50 30, 80 70 T 140 70 Q 170 30, 200 90 L 230 60" stroke="url(#gradHeroPathEnhanced)" stroke-width="6" fill="none" class="animated-hero-path" stroke-linecap="round"/>
                                 
+                                <!-- Pulsing dots on the path -->
+                                <circle cx="20" cy="90" r="7" class="path-dot-start hero-dot"/>
+                                <circle cx="230" cy="60" r="7" class="path-dot-end hero-dot"/>
+
+                                <!-- Abstract floating blocks representing data or processes -->
                                 <g class="hero-blocks">
-                                    <rect x="35" y="25" width="25" height="15" rx="2" class="hero-block block1"><animateTransform attributeName="transform" type="translate" values="0 0; 0 -5; 0 0" dur="2s" repeatCount="indefinite"/></rect>
-                                    <rect x="80" y="40" width="35" height="20" rx="2" class="hero-block block2"><animateTransform attributeName="transform" type="translate" values="0 0; 0 5; 0 0" dur="2.2s" repeatCount="indefinite"/></rect>
-                                    <rect x="140" y="20" width="20" height="25" rx="2" class="hero-block block3"><animateTransform attributeName="transform" type="translate" values="0 0; 0 -5; 0 0" dur="1.8s" repeatCount="indefinite"/></rect>
+                                    <rect x="45" y="30" width="30" height="20" rx="3" class="hero-block block1"/>
+                                    <rect x="100" y="50" width="40" height="25" rx="3" class="hero-block block2"/>
+                                    <rect x="165" y="25" width="25" height="30" rx="3" class="hero-block block3"/>
                                 </g>
+                                 <!-- Additional subtle background elements -->
+                                <path d="M 30 100 Q 70 70 100 90 T 180 70" stroke="var(--primary-blue)" stroke-width="2" fill="none" opacity="0.2" class="hero-bg-line1"/>
+                                <path d="M 50 20 Q 80 50 110 30 T 190 50" stroke="var(--accent-cyan)" stroke-width="2" fill="none" opacity="0.2" class="hero-bg-line2"/>
                             </svg>
-                             <p class="svg-placeholder-text">Visualizing DevOps Efficiency</p>
                         </div>
                     </div>
                 </div>
@@ -88,9 +95,14 @@
                     <div class="problem-cards-grid">
                         <div class="problem-card">
                             <div class="svg-graphic-placeholder problem-svg animated-svg-container">
-                                <svg viewBox="0 0 64 64" class="problem-icon-svg">
-                                    <path class="svg-animate svg-pulse-color" d="M51.8 43.4H12.2c-1.1 0-2-.9-2-2V22.6c0-1.1.9-2 2-2h39.6c1.1 0 2 .9 2 2v18.8c0 1.1-.9 2-2 2zM10.2 16.4h43.6M32 16.4v-5m11.9 21H20.1m23.8 0H20.1m11.9-11.9v23.8m0-23.8v23.8"/>
-                                    <circle class="svg-animate svg-scale-pulse" cx="32" cy="10" r="2"/>
+                                <!-- SVG for Infrastructure Instability -->
+                                <svg viewBox="0 0 100 100" class="problem-icon-svg">
+                                    <rect x="15" y="35" width="70" height="30" rx="5" class="svg-animate svg-pulse-color" fill-opacity="0.1"/>
+                                    <line x1="15" y1="50" x2="85" y2="50" stroke-width="4" class="svg-animate svg-draw-line"/>
+                                    <rect x="25" y="20" width="15" height="40" rx="3" class="problem-block"/>
+                                    <rect x="45" y="25" width="15" height="50" rx="3" class="problem-block delay1"/>
+                                    <rect x="65" y="15" width="15" height="35" rx="3" class="problem-block delay2"/>
+                                    <path d="M32.5 20 L32.5 10 M52.5 25 L52.5 10 M72.5 15 L72.5 10" stroke-width="3" class="problem-connector"/>
                                 </svg>
                             </div>
                             <h4>Infrastructure Instability</h4>
@@ -98,10 +110,15 @@
                         </div>
                         <div class="problem-card">
                            <div class="svg-graphic-placeholder problem-svg animated-svg-container">
-                                <svg viewBox="0 0 64 64" class="problem-icon-svg">
-                                   <path class="svg-animate svg-draw-line" d="M10 32h12m10 0h12m-30-8l6-6m-6 12l6 6m18-12l-6-6m6 12l-6 6"/>
-                                   <path class="svg-animate svg-pulse-color" d="M54 32L42 20M54 32L42 44M10 32l12-12M10 32l12 12"/>
-                                   <rect class="svg-animate svg-color-cycle" x="26" y="26" width="12" height="12" rx="2"/>
+                                <!-- SVG for Slow Deployment Cycles -->
+                                <svg viewBox="0 0 100 100" class="problem-icon-svg">
+                                    <circle cx="50" cy="50" r="35" stroke-width="4" fill="none" class="svg-animate svg-draw-line"/>
+                                    <path d="M 50 15 V 50 L 75 62" stroke-width="4" class="svg-animate svg-pulse-color"/>
+                                    <circle cx="50" cy="50" r="5" class="problem-center-dot"/>
+                                    <g class="problem-arrows">
+                                        <path d="M65 30 L75 35 L65 40" fill="none" stroke-width="3"/>
+                                        <path d="M35 70 L25 65 L35 60" fill="none" stroke-width="3"/>
+                                    </g>
                                 </svg>
                            </div>
                             <h4>Slow Deployment Cycles</h4>
@@ -144,17 +161,31 @@
                     </div>
                     <div class="my-approach-graphic animated-svg-container">
                         <div class="svg-graphic-placeholder approach-svg">
+                             <!-- Enhanced Approach SVG -->
                             <svg viewBox="0 0 100 100" class="approach-icon-svg">
-                                <path class="svg-animate svg-color-cycle-alt" d="M50 10 C 20 25, 20 75, 50 90 S 80 75, 80 25 Z" fill-opacity="0.2"/>
-                                <path class="svg-animate svg-draw-line" d="M30 50 L70 50 M50 30 L50 70 M35 35 L65 65 M35 65 L65 35" stroke-width="3"/>
-                                <circle class="svg-animate svg-scale-pulse" cx="50" cy="50" r="10" fill-opacity="0.5"/>
+                                <defs>
+                                    <filter id="glow">
+                                        <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+                                        <feMerge>
+                                            <feMergeNode in="coloredBlur"/>
+                                            <feMergeNode in="SourceGraphic"/>
+                                        </feMerge>
+                                    </filter>
+                                </defs>
+                                <path class="svg-animate svg-color-cycle-alt" d="M50,15 C25,25 15,70 50,85 S75,75 85,30 C70,15 55,10 50,15 Z" fill-opacity="0.15" filter="url(#glow)"/>
+                                <path class="svg-animate svg-draw-line-slow" d="M20,50 Q50,20 80,50 T 50,80 Q20,50 20,50 Z" stroke-width="3" stroke-dasharray="5 5" opacity="0.7"/>
+                                <g class="approach-gears">
+                                    <circle cx="50" cy="50" r="12" fill="none" stroke-width="4" class="approach-gear1"/>
+                                    <circle cx="35" cy="35" r="8" fill="none" stroke-width="3" class="approach-gear2"/>
+                                    <circle cx="65" cy="65" r="10" fill="none" stroke-width="3" class="approach-gear3"/>
+                                </g>
                            </svg>
-                           <p class="svg-placeholder-text">Strategic Automation</p>
                         </div>
                     </div>
                 </div>
             </section>
 
+            <!-- Key Offerings / Projects Section -->
             <section class="key-offerings-section fade-in-element" id="offerings">
                 <div class="container">
                     <p class="section-tag">Solutions</p>
@@ -245,16 +276,16 @@
                     <p class="section-tag">My Expertise</p>
                     <h2>Core Technologies & Tools</h2>
                     <div class="tech-logos-grid">
-                        <div class="tech-logo-item" aria-label="AWS"><i class="fab fa-aws fa-3x"></i><span>AWS</span></div>
-                        <div class="tech-logo-item" aria-label="Azure"><i class="fab fa-microsoft fa-3x"></i><span>Azure</span></div>
-                        <div class="tech-logo-item" aria-label="Terraform"><i class="fas fa-cubes fa-3x"></i><span>Terraform</span></div>
-                        <div class="tech-logo-item" aria-label="Ansible"><i class="fas fa-tasks fa-3x"></i><span>Ansible</span></div>
-                        <div class="tech-logo-item" aria-label="Python"><i class="fab fa-python fa-3x"></i><span>Python</span></div>
-                        <div class="tech-logo-item" aria-label="Docker"><i class="fab fa-docker fa-3x"></i><span>Docker</span></div>
-                        <div class="tech-logo-item" aria-label="Kubernetes"><i class="fas fa-dharmachakra fa-3x"></i><span>Kubernetes</span></div>
-                        <div class="tech-logo-item" aria-label="GitLab"><i class="fab fa-gitlab fa-3x"></i><span>GitLab</span></div>
-                        <div class="tech-logo-item" aria-label="GitHub"><i class="fab fa-github fa-3x"></i><span>GitHub</span></div>
-                        <div class="tech-logo-item" aria-label="Jenkins"><i class="fab fa-jenkins fa-3x"></i><span>Jenkins</span></div>
+                        <div class="tech-logo-item" aria-label="AWS"><i class="fab fa-aws fa-3x tech-icon-animated"></i><span>AWS</span></div>
+                        <div class="tech-logo-item" aria-label="Azure"><i class="fab fa-microsoft fa-3x tech-icon-animated"></i><span>Azure</span></div>
+                        <div class="tech-logo-item" aria-label="Terraform"><i class="fas fa-cubes fa-3x tech-icon-animated"></i><span>Terraform</span></div>
+                        <div class="tech-logo-item" aria-label="Ansible"><i class="fas fa-tasks fa-3x tech-icon-animated"></i><span>Ansible</span></div>
+                        <div class="tech-logo-item" aria-label="Python"><i class="fab fa-python fa-3x tech-icon-animated"></i><span>Python</span></div>
+                        <div class="tech-logo-item" aria-label="Docker"><i class="fab fa-docker fa-3x tech-icon-animated"></i><span>Docker</span></div>
+                        <div class="tech-logo-item" aria-label="Kubernetes"><i class="fas fa-dharmachakra fa-3x tech-icon-animated"></i><span>Kubernetes</span></div>
+                        <div class="tech-logo-item" aria-label="GitLab"><i class="fab fa-gitlab fa-3x tech-icon-animated"></i><span>GitLab</span></div>
+                        <div class="tech-logo-item" aria-label="GitHub"><i class="fab fa-github fa-3x tech-icon-animated"></i><span>GitHub</span></div>
+                        <div class="tech-logo-item" aria-label="Jenkins"><i class="fab fa-jenkins fa-3x tech-icon-animated"></i><span>Jenkins</span></div>
                     </div>
                  </div>
             </section>
@@ -302,12 +333,11 @@
                 </div>
             </div>
             <div class="container footer-bottom">
-                <p>© 2024 Sai Jagan Yetukuri. All Rights Reserved.</p>
+                <p>© 2025 Sai Jagan Yetukuri. All Rights Reserved.</p>
             </div>
         </footer>
     </div>
 
-    <!-- Modals for Privacy Policy and Terms of Service -->
     <div id="privacy-policy-modal" class="modal">
         <div class="modal-content">
             <span class="close-button">×</span>
