@@ -57,7 +57,6 @@
                     </div>
                     <div class="hero-graphic">
                         <div class="svg-graphic-placeholder hero-svg">
-                            <!-- Enhanced Hero SVG -->
                             <svg viewBox="0 0 250 120" xmlns="http://www.w3.org/2000/svg">
                                 <defs>
                                     <linearGradient id="gradHeroPathEnhanced" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -66,20 +65,14 @@
                                         <stop offset="100%" class="hero-path-color-stop3" />
                                     </linearGradient>
                                 </defs>
-                                <!-- Main animated path -->
                                 <path d="M 20 90 Q 50 30, 80 70 T 140 70 Q 170 30, 200 90 L 230 60" stroke="url(#gradHeroPathEnhanced)" stroke-width="6" fill="none" class="animated-hero-path" stroke-linecap="round"/>
-                                
-                                <!-- Pulsing dots on the path -->
                                 <circle cx="20" cy="90" r="7" class="path-dot-start hero-dot"/>
                                 <circle cx="230" cy="60" r="7" class="path-dot-end hero-dot"/>
-
-                                <!-- Abstract floating blocks representing data or processes -->
                                 <g class="hero-blocks">
                                     <rect x="45" y="30" width="30" height="20" rx="3" class="hero-block block1"/>
                                     <rect x="100" y="50" width="40" height="25" rx="3" class="hero-block block2"/>
                                     <rect x="165" y="25" width="25" height="30" rx="3" class="hero-block block3"/>
                                 </g>
-                                 <!-- Additional subtle background elements -->
                                 <path d="M 30 100 Q 70 70 100 90 T 180 70" stroke="var(--primary-blue)" stroke-width="2" fill="none" opacity="0.2" class="hero-bg-line1"/>
                                 <path d="M 50 20 Q 80 50 110 30 T 190 50" stroke="var(--accent-cyan)" stroke-width="2" fill="none" opacity="0.2" class="hero-bg-line2"/>
                             </svg>
@@ -88,6 +81,7 @@
                 </div>
             </section>
 
+            <!-- Problem Statement Section - SVGs UPDATED HERE -->
             <section class="problem-statement-section fade-in-element">
                 <div class="container">
                     <p class="section-tag">What's the challenge?</p>
@@ -95,14 +89,36 @@
                     <div class="problem-cards-grid">
                         <div class="problem-card">
                             <div class="svg-graphic-placeholder problem-svg animated-svg-container">
-                                <!-- SVG for Infrastructure Instability -->
-                                <svg viewBox="0 0 100 100" class="problem-icon-svg">
-                                    <rect x="15" y="35" width="70" height="30" rx="5" class="svg-animate svg-pulse-color" fill-opacity="0.1"/>
-                                    <line x1="15" y1="50" x2="85" y2="50" stroke-width="4" class="svg-animate svg-draw-line"/>
-                                    <rect x="25" y="20" width="15" height="40" rx="3" class="problem-block"/>
-                                    <rect x="45" y="25" width="15" height="50" rx="3" class="problem-block delay1"/>
-                                    <rect x="65" y="15" width="15" height="35" rx="3" class="problem-block delay2"/>
-                                    <path d="M32.5 20 L32.5 10 M52.5 25 L52.5 10 M72.5 15 L72.5 10" stroke-width="3" class="problem-connector"/>
+                                <!-- Enhanced SVG for Infrastructure Instability -->
+                                <svg viewBox="-10 -10 120 120" class="problem-icon-svg instability-svg">
+                                    <title>Icon representing infrastructure instability with shaky server blocks</title>
+                                    <defs>
+                                        <filter id="subtleGlow" x="-50%" y="-50%" width="200%" height="200%">
+                                            <feGaussianBlur stdDeviation="1" result="blur" />
+                                            <feMerge>
+                                                <feMergeNode in="blur" />
+                                                <feMergeNode in="SourceGraphic" />
+                                            </feMerge>
+                                        </filter>
+                                    </defs>
+                                    <g class="server-rack">
+                                        <rect x="20" y="10" width="60" height="80" rx="5" ry="5" class="rack-case"/>
+                                        <line x1="20" y1="25" x2="80" y2="25" class="rack-divider"/>
+                                        <line x1="20" y1="40" x2="80" y2="40" class="rack-divider"/>
+                                        <line x1="20" y1="55" x2="80" y2="55" class="rack-divider"/>
+                                        <line x1="20" y1="70" x2="80" y2="70" class="rack-divider"/>
+                                    </g>
+                                    <g class="server-blocks" filter="url(#subtleGlow)">
+                                        <rect x="25" y="12" width="50" height="10" rx="2" ry="2" class="server-block block-a"/>
+                                        <rect x="25" y="27" width="50" height="10" rx="2" ry="2" class="server-block block-b"/>
+                                        <rect x="25" y="42" width="50" height="10" rx="2" ry="2" class="server-block block-c"/>
+                                        <rect x="25" y="57" width="50" height="10" rx="2" ry="2" class="server-block block-d"/>
+                                        <rect x="25" y="72" width="50" height="10" rx="2" ry="2" class="server-block block-e"/>
+                                    </g>
+                                    <g class="error-signals">
+                                        <path d="M40 5 L42 10 L38 10 Z" class="error-triangle t1"/>
+                                        <path d="M60 5 L62 10 L58 10 Z" class="error-triangle t2"/>
+                                    </g>
                                 </svg>
                             </div>
                             <h4>Infrastructure Instability</h4>
@@ -110,15 +126,27 @@
                         </div>
                         <div class="problem-card">
                            <div class="svg-graphic-placeholder problem-svg animated-svg-container">
-                                <!-- SVG for Slow Deployment Cycles -->
-                                <svg viewBox="0 0 100 100" class="problem-icon-svg">
-                                    <circle cx="50" cy="50" r="35" stroke-width="4" fill="none" class="svg-animate svg-draw-line"/>
-                                    <path d="M 50 15 V 50 L 75 62" stroke-width="4" class="svg-animate svg-pulse-color"/>
-                                    <circle cx="50" cy="50" r="5" class="problem-center-dot"/>
-                                    <g class="problem-arrows">
-                                        <path d="M65 30 L75 35 L65 40" fill="none" stroke-width="3"/>
-                                        <path d="M35 70 L25 65 L35 60" fill="none" stroke-width="3"/>
-                                    </g>
+                                <!-- Enhanced SVG for Slow Deployment Cycles -->
+                                <svg viewBox="-10 -10 120 120" class="problem-icon-svg deployment-svg">
+                                     <title>Icon representing slow deployment cycles with a stuck clock hand</title>
+                                    <defs>
+                                        <radialGradient id="clockGrad" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                                            <stop offset="0%" style="stop-color:var(--primary-blue-light); stop-opacity:0.3"/>
+                                            <stop offset="100%" style="stop-color:var(--primary-blue); stop-opacity:0.1"/>
+                                        </radialGradient>
+                                    </defs>
+                                    <circle cx="50" cy="50" r="40" class="clock-face"/>
+                                    <circle cx="50" cy="50" r="35" fill="url(#clockGrad)"/>
+                                    <line x1="50" y1="50" x2="50" y2="20" class="clock-hand hour-hand"/>
+                                    <line x1="50" y1="50" x2="75" y2="50" class="clock-hand minute-hand"/>
+                                    <circle cx="50" cy="50" r="4" class="clock-center"/>
+                                    <!-- Ticks -->
+                                    <line x1="50" y1="10" x2="50" y2="15" class="clock-tick"/>
+                                    <line x1="90" y1="50" x2="85" y2="50" class="clock-tick"/>
+                                    <line x1="50" y1="90" x2="50" y2="85" class="clock-tick"/>
+                                    <line x1="10" y1="50" x2="15" y2="50" class="clock-tick"/>
+                                    <!-- "Stuck" visual element -->
+                                    <path d="M70 45 L 80 40 L 75 30 L 65 35 Z" class="stuck-element"/>
                                 </svg>
                            </div>
                             <h4>Slow Deployment Cycles</h4>
@@ -133,6 +161,7 @@
                     </div>
                 </div>
             </section>
+            <!-- ... (rest of your HTML remains the same as the previous "Final Robust Webpage Code") ... -->
 
             <section class="my-approach-section fade-in-element" id="approach">
                 <div class="container my-approach-content-area">
@@ -161,31 +190,36 @@
                     </div>
                     <div class="my-approach-graphic animated-svg-container">
                         <div class="svg-graphic-placeholder approach-svg">
-                             <!-- Enhanced Approach SVG -->
-                            <svg viewBox="0 0 100 100" class="approach-icon-svg">
+                            <svg viewBox="-10 -10 120 120" class="approach-icon-svg">
+                                 <title>Abstract icon representing strategic automation with interconnected gears and flowing energy</title>
                                 <defs>
-                                    <filter id="glow">
-                                        <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
-                                        <feMerge>
-                                            <feMergeNode in="coloredBlur"/>
-                                            <feMergeNode in="SourceGraphic"/>
-                                        </feMerge>
-                                    </filter>
+                                    <linearGradient id="approachGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" class="approach-grad-stop1"/>
+                                        <stop offset="100%" class="approach-grad-stop2"/>
+                                    </linearGradient>
                                 </defs>
-                                <path class="svg-animate svg-color-cycle-alt" d="M50,15 C25,25 15,70 50,85 S75,75 85,30 C70,15 55,10 50,15 Z" fill-opacity="0.15" filter="url(#glow)"/>
-                                <path class="svg-animate svg-draw-line-slow" d="M20,50 Q50,20 80,50 T 50,80 Q20,50 20,50 Z" stroke-width="3" stroke-dasharray="5 5" opacity="0.7"/>
-                                <g class="approach-gears">
-                                    <circle cx="50" cy="50" r="12" fill="none" stroke-width="4" class="approach-gear1"/>
-                                    <circle cx="35" cy="35" r="8" fill="none" stroke-width="3" class="approach-gear2"/>
-                                    <circle cx="65" cy="65" r="10" fill="none" stroke-width="3" class="approach-gear3"/>
+                                <path class="approach-bg-shape" d="M50,5 C20,20 10,70 50,95 S80,80 90,30 C70,10 60,0 50,5 Z" fill="url(#approachGrad)" fill-opacity="0.2"/>
+                                
+                                <!-- Central Gear -->
+                                <g class="approach-gear-group main-gear">
+                                    <circle cx="50" cy="50" r="20" class="gear-outline"/>
+                                    <circle cx="50" cy="50" r="5" class="gear-center"/>
+                                    <!-- Gear Teeth -->
+                                    <path d="M50 30 L46 25 L54 25 Z M50 70 L46 75 L54 75 Z M30 50 L25 46 L25 54 Z M70 50 L75 46 L75 54 Z M36 36 L29 32 L32 29 Z M64 64 L71 68 L68 71 Z M36 64 L29 68 L32 71 Z M64 36 L71 32 L68 29 Z" class="gear-teeth"/>
                                 </g>
+                                <!-- Smaller Orbiting Gears/Elements -->
+                                <g class="approach-orbiting-elements">
+                                    <circle cx="20" cy="30" r="6" class="orbiting-element oe1"/>
+                                    <rect x="70" y="60" width="12" height="12" rx="3" class="orbiting-element oe2"/>
+                                    <path d="M30 75 L40 85 L20 85 Z" class="orbiting-element oe3"/>
+                                </g>
+                                <path class="approach-flow-line" d="M20 30 C 30 10, 70 10, 80 30 S 70 90, 50 80 C 30 90, 20 70, 20 30 Z" stroke-dasharray="10 5" />
                            </svg>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Key Offerings / Projects Section -->
             <section class="key-offerings-section fade-in-element" id="offerings">
                 <div class="container">
                     <p class="section-tag">Solutions</p>
@@ -333,7 +367,7 @@
                 </div>
             </div>
             <div class="container footer-bottom">
-                <p>© 2025 Sai Jagan Yetukuri. All Rights Reserved.</p>
+                <p>© 2024 Sai Jagan Yetukuri. All Rights Reserved.</p>
             </div>
         </footer>
     </div>

@@ -5,6 +5,8 @@
     --primary-blue-light: #66b0ff; /* Lighter blue for gradients/accents */
     --accent-cyan: #0dcaf0; /* Cyan for some animations */
     --accent-teal: #20c997; /* Teal for some animations */
+    --accent-orange: #fd7e14; /* Added for problem/warning states */
+    --accent-red: #dc3545;   /* Added for error states */
     --text-dark: #212529;
     --text-light: #ffffff;
     --text-secondary: #5a6572; 
@@ -72,8 +74,8 @@ a:hover { color: var(--primary-blue-dark); }
 .hero-text-content p { font-size: 1.125rem; color: var(--text-secondary); max-width: 550px; margin-bottom: 2rem; }
 .hero-buttons { display: flex; gap: 1rem; }
 .hero-graphic { display: flex; align-items: center; justify-content: center; }
-.svg-graphic-placeholder { width: 100%; max-width: 500px; height: auto; min-height: 300px; /* Increased size */ background-color: var(--bg-offset); border-radius: var(--border-radius); display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px solid var(--border-light); position: relative; overflow: hidden;}
-.svg-graphic-placeholder.hero-svg svg { width: 100%; height: 100%; } /* SVG takes full placeholder space */
+.svg-graphic-placeholder { width: 100%; max-width: 500px; height: auto; min-height: 300px; background-color: var(--bg-offset); border-radius: var(--border-radius); display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px solid var(--border-light); position: relative; overflow: hidden;}
+.svg-graphic-placeholder.hero-svg svg { width: 100%; height: 100%; }
 
 .animated-hero-path { stroke-dasharray: 2000; stroke-dashoffset: 2000; animation: drawHeroPath 7s ease-in-out forwards infinite alternate; }
 @keyframes drawHeroPath { 0% { stroke-dashoffset: 2000; } 50% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -2000; } }
@@ -99,16 +101,42 @@ a:hover { color: var(--primary-blue-dark); }
 .problem-cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem; }
 .problem-card { background-color: var(--bg-main); padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--card-shadow); text-align: left; transition: transform 0.3s ease; }
 .problem-card:hover { transform: translateY(-5px); }
-.svg-graphic-placeholder.problem-svg { min-height: 180px; /* Increased size */ margin-bottom: 1.5rem; color: var(--primary-blue); display: flex; align-items: center; justify-content: center; }
-.problem-icon-svg { width: 80px; height: 80px; /* Increased size */ stroke: var(--primary-blue); stroke-width: 2; fill: none; }
-.problem-block { fill: var(--primary-blue); opacity: 0.2; animation: problemBlockAnim 3s ease-in-out infinite alternate; }
-.problem-block.delay1 { animation-delay: 0.3s; }
-.problem-block.delay2 { animation-delay: 0.6s; }
-@keyframes problemBlockAnim { 0% { opacity: 0.2; transform: translateY(0); } 50% { opacity: 0.4; transform: translateY(-3px); } 100% { opacity: 0.2; transform: translateY(0); } }
-.problem-connector { stroke: var(--primary-blue); opacity: 0.5; }
-.problem-center-dot { fill: var(--primary-blue); animation: pulseColorDotHero 3s ease-in-out infinite; }
-.problem-arrows path { stroke: var(--primary-blue); animation: problemArrowPath 2s ease-in-out infinite alternate; }
-@keyframes problemArrowPath { 0% { transform: translateX(0); opacity: 0.5;} 50% { transform: translateX(3px); opacity: 1;} 100% { transform: translateX(0); opacity: 0.5;} }
+.svg-graphic-placeholder.problem-svg { min-height: 200px; /* Increased size */ margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; }
+.problem-icon-svg { width: 100px; height: 100px; /* Increased size */ stroke-width: 2; fill: none; } /* Base for problem SVGs */
+
+/* Instability SVG Styles */
+.instability-svg .rack-case { fill: #e9ecef; stroke: #ced4da; stroke-width:1.5; }
+.instability-svg .rack-divider { stroke: #ced4da; stroke-width:1; }
+.instability-svg .server-block { fill: var(--primary-blue); animation: serverBlockJitter 0.5s ease-in-out infinite alternate, serverBlockColorCycle 8s linear infinite; }
+.instability-svg .server-block.block-a { animation-delay: 0s, 0s; }
+.instability-svg .server-block.block-b { animation-delay: 0.1s, 0.5s; }
+.instability-svg .server-block.block-c { animation-delay: 0.2s, 1s; }
+.instability-svg .server-block.block-d { animation-delay: 0.05s, 1.5s; }
+.instability-svg .server-block.block-e { animation-delay: 0.15s, 2s; }
+@keyframes serverBlockJitter { 0% { transform: translate(0, 0); } 25% { transform: translate(1px, -1px); } 50% { transform: translate(-1px, 1px); } 75% { transform: translate(-1px, -1px); } 100% { transform: translate(0,0); } }
+@keyframes serverBlockColorCycle {
+    0%, 100% { fill: var(--primary-blue); opacity: 0.6;}
+    25% { fill: var(--accent-cyan); opacity: 0.7;}
+    50% { fill: var(--primary-blue-light); opacity: 0.5;}
+    75% { fill: var(--accent-orange); opacity: 0.6;}
+}
+.instability-svg .error-triangle { fill: var(--accent-red); animation: errorTrianglePulse 1.5s ease-in-out infinite alternate; }
+.instability-svg .error-triangle.t1 { animation-delay: 0s; }
+.instability-svg .error-triangle.t2 { animation-delay: 0.3s; }
+@keyframes errorTrianglePulse { 0% { opacity: 0.5; transform: scale(0.9); } 100% { opacity: 1; transform: scale(1.1); } }
+
+/* Deployment SVG Styles */
+.deployment-svg .clock-face { stroke: var(--primary-blue); stroke-width:3; fill: rgba(0,123,255,0.05); }
+.deployment-svg .clock-hand { stroke: var(--text-dark); stroke-width:3; stroke-linecap:round; transform-origin: 50% 50%; }
+.deployment-svg .hour-hand { animation: clockHourStutter 10s linear infinite; }
+.deployment-svg .minute-hand { animation: clockMinuteStutter 3s steps(12, end) infinite; }
+@keyframes clockHourStutter { 0% { transform: rotate(0deg); } 40% { transform: rotate(30deg); } 60% { transform: rotate(25deg); } 100% { transform: rotate(60deg); } }
+@keyframes clockMinuteStutter { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.deployment-svg .clock-center { fill: var(--text-dark); }
+.deployment-svg .clock-tick { stroke: #adb5bd; stroke-width:2; }
+.deployment-svg .stuck-element { fill: var(--accent-orange); opacity: 0.8; animation: stuckElementJiggle 0.8s ease-in-out infinite alternate; transform-origin: center; }
+@keyframes stuckElementJiggle { 0% { transform: translate(0,0) rotate(0deg); } 50% { transform: translate(1px,1px) rotate(5deg); } 100% { transform: translate(0,0) rotate(0deg); } }
+
 .problem-card h4 { margin-bottom: 0.75rem; }
 .problem-tags { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.75rem; }
 .problem-tags span { background-color: #ffebee; color: #c62828; padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.85rem; font-weight: var(--font-weight-medium); display: flex; align-items: center; }
@@ -129,12 +157,23 @@ a:hover { color: var(--primary-blue-dark); }
 .feature-icon i { font-size: 1.5rem; }
 .feature-highlight h4 { color: var(--text-light); margin-bottom: 0.5rem; }
 .feature-highlight p { font-size: 0.95rem; color: #ced4da; margin-bottom: 0; }
-.svg-graphic-placeholder.approach-svg { min-height: 300px; /* Increased size */ color: var(--primary-blue); border-color: rgba(255,255,255,0.1); background-color: rgba(255,255,255,0.05); }
-.approach-icon-svg { width: 100%; height: 100%; /* SVG takes full placeholder space */ stroke: var(--primary-blue); fill: none; }
-.approach-gear1 { animation: rotateGear 10s linear infinite; transform-origin: center; stroke: var(--text-light); opacity: 0.7;}
-.approach-gear2 { animation: rotateGear 8s linear infinite reverse; transform-origin: center; stroke: var(--accent-cyan); opacity: 0.6;}
-.approach-gear3 { animation: rotateGear 12s linear infinite; transform-origin: center; stroke: var(--accent-teal); opacity: 0.8;}
-@keyframes rotateGear { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.svg-graphic-placeholder.approach-svg { min-height: 300px; color: var(--primary-blue); border-color: rgba(255,255,255,0.1); background-color: rgba(255,255,255,0.05); }
+.approach-icon-svg { width: 100%; height: 100%; stroke: var(--primary-blue); fill: none; }
+.approach-bg-shape { animation: approachBgPulse 8s ease-in-out infinite alternate; }
+.approach-grad-stop1 {stop-color: var(--primary-blue);}
+.approach-grad-stop2 {stop-color: var(--accent-teal);}
+@keyframes approachBgPulse { 0% {fill-opacity: 0.15; transform: scale(1);} 50% {fill-opacity: 0.25; transform: scale(1.05);} 100% {fill-opacity: 0.15; transform: scale(1);} }
+.approach-flow-line { stroke: var(--primary-blue-light); animation: approachFlow 6s linear infinite; }
+@keyframes approachFlow { to { stroke-dashoffset: -100; } }
+.approach-gear-group .gear-outline { stroke: var(--text-light); opacity: 0.8; }
+.approach-gear-group .gear-center { fill: var(--text-light); opacity: 0.9; }
+.approach-gear-group .gear-teeth { fill: var(--text-light); opacity: 0.7; }
+.main-gear { animation: rotateGear 10s linear infinite; transform-origin: center; }
+.orbiting-element { fill: var(--accent-cyan); opacity: 0.7; animation: orbit 8s linear infinite; transform-origin: 50px 50px;}
+.orbiting-element.oe1 { animation-duration: 7s; }
+.orbiting-element.oe2 { animation-duration: 9s; animation-delay: 1s; }
+.orbiting-element.oe3 { animation-duration: 6s; animation-delay: 0.5s; }
+@keyframes orbit { from { transform: rotate(0deg) translateX(30px) rotate(0deg); } to { transform: rotate(360deg) translateX(30px) rotate(-360deg); } }
 
 
 /* --- KEY OFFERINGS / PROJECTS SECTION --- */
@@ -169,25 +208,26 @@ a:hover { color: var(--primary-blue-dark); }
 .tech-logos-grid { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 2rem; }
 .tech-logo-item { text-align: center; opacity: 0.8; transition: opacity 0.3s ease, transform 0.3s ease; color: var(--text-secondary); }
 .tech-logo-item:hover { opacity: 1; transform: scale(1.1) translateY(-3px); }
-.tech-logo-item i { font-size: 2.5rem; margin-bottom: 0.5rem;  animation: techIconColorCycle 5s linear infinite; } 
-.tech-logo-item:hover i { animation-play-state: paused; color: var(--primary-blue-dark) !important; } /* Important to override animation */
+.tech-logo-item i { font-size: 2.5rem; margin-bottom: 0.5rem; animation: techIconColorCycleAdvanced 6s linear infinite; } 
+.tech-logo-item:hover i { animation-play-state: paused; color: var(--primary-blue-dark) !important; } 
 .tech-logo-item span { display: block; font-size: 0.85rem; font-weight: var(--font-weight-medium); }
-@keyframes techIconColorCycle {
+@keyframes techIconColorCycleAdvanced {
     0%, 100% { color: var(--primary-blue); }
-    25% { color: var(--accent-cyan); }
-    50% { color: var(--primary-blue-light); }
-    75% { color: var(--accent-teal); }
+    20% { color: var(--accent-cyan); }
+    40% { color: var(--primary-blue-light); }
+    60% { color: var(--accent-teal); }
+    80% { color: var(--accent-orange); }
 }
 /* Stagger animation for tech icons */
-.tech-logo-item:nth-child(2) i { animation-delay: 0.2s; }
-.tech-logo-item:nth-child(3) i { animation-delay: 0.4s; }
-.tech-logo-item:nth-child(4) i { animation-delay: 0.6s; }
-.tech-logo-item:nth-child(5) i { animation-delay: 0.8s; }
-.tech-logo-item:nth-child(6) i { animation-delay: 1.0s; }
-.tech-logo-item:nth-child(7) i { animation-delay: 1.2s; }
-.tech-logo-item:nth-child(8) i { animation-delay: 1.4s; }
-.tech-logo-item:nth-child(9) i { animation-delay: 1.6s; }
-.tech-logo-item:nth-child(10) i { animation-delay: 1.8s; }
+.tech-logo-item:nth-child(2) i { animation-delay: -0.5s; } /* Negative delay to start at different points in cycle */
+.tech-logo-item:nth-child(3) i { animation-delay: -1.0s; }
+.tech-logo-item:nth-child(4) i { animation-delay: -1.5s; }
+.tech-logo-item:nth-child(5) i { animation-delay: -2.0s; }
+.tech-logo-item:nth-child(6) i { animation-delay: -2.5s; }
+.tech-logo-item:nth-child(7) i { animation-delay: -3.0s; }
+.tech-logo-item:nth-child(8) i { animation-delay: -3.5s; }
+.tech-logo-item:nth-child(9) i { animation-delay: -4.0s; }
+.tech-logo-item:nth-child(10) i { animation-delay: -4.5s; }
 
 
 /* --- FINAL CTA SECTION --- */
@@ -225,7 +265,7 @@ a:hover { color: var(--primary-blue-dark); }
 .fade-in-element { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
 .fade-in-element.is-visible { opacity: 1; transform: translateY(0); }
 
-/* SVG Animation Keyframes */
+/* SVG Animation Keyframes (General) */
 .svg-animate { fill: none; stroke: var(--primary-blue); stroke-width: 2; }
 @keyframes drawLine { to { stroke-dashoffset: 0; } }
 .svg-draw-line { stroke-dasharray: 100; stroke-dashoffset: 100; animation: drawLine 2s ease-out forwards; animation-delay: 0.5s; }
@@ -241,7 +281,7 @@ a:hover { color: var(--primary-blue-dark); }
 .svg-color-cycle { fill-opacity: 0.7; animation: colorCycle 5s ease-in-out infinite; }
 .svg-color-cycle-alt { stroke: var(--primary-blue); animation: colorCycleAlt 5s ease-in-out infinite; }
 @keyframes colorCycleAlt { 0%, 100% { stroke: var(--primary-blue); } 33% { stroke: var(--accent-cyan); } 66% { stroke: var(--accent-teal); } }
-.animated-svg-container:hover svg path, .animated-svg-container:hover svg circle, .animated-svg-container:hover svg rect { /* stroke: var(--primary-blue-dark); */ /* Removed to let individual animations control hover */ }
+.animated-svg-container:hover svg path, .animated-svg-container:hover svg circle, .animated-svg-container:hover svg rect { /* Removed general hover to let specific animations take precedence */ }
 
 
 @media (max-width: 992px) {
@@ -274,11 +314,10 @@ a:hover { color: var(--primary-blue-dark); }
     .about-me-image { margin-bottom: 1rem; }
     .about-me-stats {flex-direction: column;}
     .stat-item {flex-basis: auto;}
-    .svg-graphic-placeholder {min-height: 200px;} /* Adjust placeholder height for mobile */
+    .svg-graphic-placeholder {min-height: 200px;} 
     .svg-graphic-placeholder.hero-svg {min-height: 200px;}
-    .svg-graphic-placeholder.problem-svg {min-height: 120px;}
-    .problem-icon-svg { width: 50px; height: 50px; }
+    .svg-graphic-placeholder.problem-svg {min-height: 160px;} /* Adjusted problem SVG placeholder for mobile */
+    .problem-icon-svg { width: 80px; height: 80px; } /* Adjusted problem SVG icon for mobile */
     .svg-graphic-placeholder.approach-svg {min-height: 200px;}
     .approach-icon-svg {width: 70px; height: 70px;}
-
 }
