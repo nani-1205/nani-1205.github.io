@@ -1,0 +1,797 @@
+/* Basic Resets & Global Styles */
+:root {
+    /* Color Palette */
+    --bg-dark: #202023; /* Very dark background */
+    --bg-medium: #26262b; /* Slightly lighter for sections */
+    --text-light: #e0e0e0; /* Light text for readability */
+    --text-muted: #888; /* Muted text for secondary info */
+    --accent-orange: #FFC107; /* Primary accent color */
+    --card-bg: #2b2b30; /* Slightly lighter card background */
+    --border-color: #3a3a40; /* Subtle border for separation */
+
+    /* Typography */
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+}
+
+/* Universal box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and root font styles */
+body {
+    font-family: var(--font-body);
+    color: var(--text-light);
+    background-color: var(--bg-dark);
+    line-height: 1.6;
+}
+
+/* Centralized container for consistent width */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px; /* Horizontal padding for smaller screens */
+}
+
+/* Headings typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--text-light);
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+h1 { font-size: 3.5em; font-weight: 800; } /* Larger for Hero section */
+h2 { font-size: 2.2em; font-weight: 700; margin-bottom: 25px;} /* Section titles */
+h3 { font-size: 1.8em; font-weight: 700; }
+h4 { font-size: 1.4em; font-weight: 600; }
+
+/* Link styling */
+a {
+    color: var(--accent-orange);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #e0ac00; /* Darker orange on hover */
+}
+
+/* Paragraph spacing */
+p {
+    margin-bottom: 15px;
+}
+
+/* General button style */
+.btn {
+    display: inline-block;
+    background-color: var(--accent-orange);
+    color: var(--bg-dark); /* Dark text on orange button */
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.btn:hover {
+    background-color: #e0ac00;
+}
+
+/* Style for section titles with accent line */
+.section-title {
+    color: var(--text-light);
+    margin-bottom: 50px;
+    font-size: 2.5em;
+    font-weight: 800;
+    text-align: center;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-title::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--accent-orange);
+    border-radius: 2px;
+}
+
+/* Utility class for two-column grid layout */
+.grid-2-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+/* Header & Navigation */
+header {
+    background-color: var(--bg-dark);
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-image {
+    height: 40px; /* Adjust as needed for your logo */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    font-weight: 600;
+    font-size: 1.1em;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-orange);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Hero Section */
+.hero {
+    background-color: var(--bg-dark);
+    padding: 80px 0;
+    min-height: 80vh; /* Minimum height for hero section */
+    display: flex;
+    align-items: center;
+    overflow: hidden; /* Important for preventing content spill */
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allows content to wrap on smaller screens */
+}
+
+.hero-text {
+    flex: 1;
+    min-width: 300px; /* Minimum width before wrapping */
+    padding-right: 40px;
+}
+
+.hero-text h1 {
+    color: var(--text-light);
+    margin-bottom: 10px;
+    font-size: 4em; /* Larger for impact */
+}
+
+.hero-title {
+    color: var(--text-light);
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.introduction-snippet {
+    color: var(--text-muted);
+    font-size: 1.1em;
+    max-width: 500px; /* Control text width */
+}
+
+.hero-image {
+    flex: 1;
+    min-width: 300px;
+    text-align: right; /* Aligns image to the right */
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Slight roundness for the image */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+}
+
+.social-icons {
+    margin-top: 30px;
+}
+
+.social-icons a {
+    color: var(--text-light);
+    font-size: 1.5em;
+    margin-right: 20px;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--accent-orange);
+}
+
+/* About / Contact & Achievements Section */
+.about-contact-achievements {
+    background-color: var(--bg-medium);
+    padding: 80px 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.contact-info h2, .achievements h2 {
+    font-size: 1.2em;
+    color: var(--accent-orange);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 15px; /* Space for the small orange line */
+}
+
+.contact-info h2::before, .achievements h2::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 2px;
+    background-color: var(--accent-orange);
+}
+
+.contact-info h3 {
+    font-size: 2em;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-top: 10px;
+}
+
+.contact-info p {
+    color: var(--text-muted);
+    margin-top: 20px;
+    max-width: 500px;
+}
+
+.email-link {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--accent-orange);
+}
+
+.email-link i {
+    margin-left: 10px;
+}
+
+.achievements {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.achievements h2 {
+    font-size: 2em; /* Adjusted for this section's heading */
+    color: var(--text-light);
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.achievements h2::before { /* Remove the small line for this specific heading */
+    display: none;
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 30px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-item .number {
+    font-size: 3.5em;
+    font-weight: 800;
+    color: var(--accent-orange);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.stat-item .label {
+    font-size: 1.1em;
+    color: var(--text-light);
+    display: block;
+}
+
+
+/* Services / Expertise Section */
+.services {
+    background-color: var(--bg-dark);
+    padding: 80px 0;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 30px;
+}
+
+.service-card {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.service-card .icon {
+    font-size: 3em;
+    color: var(--accent-orange);
+    margin-bottom: 20px;
+}
+
+.service-card h4 {
+    color: var(--text-light);
+    font-weight: 700;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.service-card p {
+    color: var(--text-muted);
+    font-size: 0.95em;
+    margin-bottom: 20px;
+}
+
+.service-card span {
+    display: block;
+    color: var(--accent-orange);
+    font-weight: 600;
+}
+
+/* Special styling for the primary (orange) service card */
+.service-card.primary {
+    background-color: var(--accent-orange);
+    color: var(--bg-dark);
+}
+
+.service-card.primary h4,
+.service-card.primary p,
+.service-card.primary span,
+.service-card.primary .icon {
+    color: var(--bg-dark); /* Ensure text/icon is dark on primary card */
+}
+
+/* Portfolio / Works Section */
+.portfolio {
+    background-color: var(--bg-medium);
+    padding: 80px 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Responsive grid */
+    gap: 30px;
+}
+
+.portfolio-item {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden; /* Ensures image corners are rounded */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-5px);
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 250px; /* Fixed height for consistent card appearance */
+    object-fit: cover; /* Ensures image covers the area without distortion */
+    display: block;
+}
+
+.item-info {
+    padding: 25px;
+}
+
+.item-info h4 {
+    font-size: 1.6em;
+    margin-bottom: 5px;
+}
+
+.item-info .category {
+    color: var(--accent-orange);
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.item-info p {
+    color: var(--text-muted);
+    font-size: 0.95em;
+    margin-bottom: 20px;
+}
+
+.explore-btn {
+    color: var(--text-light);
+    font-weight: 600;
+    position: relative;
+    padding-right: 20px; /* Space for the arrow icon */
+}
+
+.explore-btn i {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease;
+}
+
+.explore-btn:hover i {
+    transform: translateY(-50%) translateX(5px); /* Arrow moves on hover */
+}
+
+/* Blog / News Section */
+.blog {
+    background-color: var(--bg-dark);
+    padding: 80px 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.blog-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.blog-item {
+    background-color: var(--card-bg);
+    padding: 20px 30px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allows content to wrap */
+    transition: background-color 0.3s ease;
+}
+
+.blog-item:hover {
+    background-color: #35353a; /* Slightly lighter on hover */
+}
+
+.blog-item .date {
+    color: var(--accent-orange);
+    font-size: 0.9em;
+    font-weight: 600;
+    margin-right: 20px;
+    min-width: 120px; /* Ensures date column has minimum width */
+}
+
+.blog-item a {
+    flex-grow: 1; /* Allows link to take remaining space */
+    color: var(--text-light);
+    font-size: 1.1em;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.blog-item a i {
+    margin-left: 15px;
+    transition: transform 0.3s ease;
+}
+
+.blog-item a:hover i {
+    transform: translateX(5px);
+}
+
+/* Testimonial Section */
+.testimonial {
+    background-color: var(--bg-medium);
+    padding: 80px 0;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.testimonial-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.testimonial-quote p {
+    font-size: 1.6em;
+    font-style: italic;
+    color: var(--text-light);
+    position: relative;
+    margin-bottom: 40px;
+    padding: 0 40px; /* Space for quote icons */
+}
+
+/* Quote icons using Font Awesome pseudo-elements */
+.testimonial-quote p::before,
+.testimonial-quote p::after {
+    font-family: "Font Awesome 5 Free"; /* Ensure Font Awesome is loaded */
+    font-weight: 900; /* For solid icons */
+    font-size: 3em;
+    color: var(--accent-orange);
+    position: absolute;
+    top: -15px;
+}
+
+.testimonial-quote p::before {
+    content: "\f10d"; /* fa-quote-left unicode */
+    left: 0;
+}
+
+.testimonial-quote p::after {
+    content: "\f10e"; /* fa-quote-right unicode */
+    right: 0;
+    top: auto; /* Reset top */
+    bottom: -35px; /* Position at the bottom */
+}
+
+
+.attribution {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.attribution .name {
+    display: block;
+    font-size: 1.2em;
+    font-weight: 700;
+    color: var(--text-light);
+}
+
+.attribution .title {
+    font-size: 0.9em;
+    color: var(--text-muted);
+}
+
+/* Testimonial navigation dots */
+.testimonial-nav {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.testimonial-nav .dot {
+    width: 10px;
+    height: 10px;
+    background-color: var(--text-muted);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.testimonial-nav .dot.active,
+.testimonial-nav .dot:hover {
+    background-color: var(--accent-orange);
+}
+
+
+/* Final Contact Section - Bottom contact form */
+.final-contact {
+    background-color: var(--bg-dark);
+    padding: 80px 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.final-contact .contact-text h2 {
+    font-size: 2.2em;
+    text-align: left; /* Override global text-align center */
+    margin-bottom: 10px;
+}
+
+.final-contact .contact-text h2::before {
+    display: none; /* Remove line under this specific heading */
+}
+
+.final-contact .contact-text p {
+    color: var(--text-muted);
+    max-width: 500px;
+    margin-bottom: 30px;
+}
+
+.contact-form h2 {
+    font-size: 1.8em;
+    text-align: left; /* Override global text-align center */
+    margin-bottom: 25px;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+}
+
+.contact-form input,
+.contact-form textarea {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 15px 20px;
+    border-radius: 5px;
+    color: var(--text-light);
+    font-family: var(--font-body);
+    font-size: 1em;
+    width: 100%;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: var(--text-muted);
+}
+
+.contact-form textarea {
+    min-height: 120px;
+    resize: vertical; /* Allow vertical resizing of textarea */
+}
+
+.contact-form button {
+    background-color: var(--accent-orange);
+    border: none;
+    padding: 15px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: var(--bg-dark);
+    align-self: flex-end; /* Aligns button to the right within the flex column */
+    width: auto; /* Button size adapts to content */
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #e0ac00;
+}
+
+
+/* Footer Section */
+footer {
+    background-color: var(--bg-dark);
+    padding: 40px 0;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+}
+
+footer p {
+    color: var(--text-muted);
+    font-size: 0.9em;
+    margin-bottom: 20px;
+}
+
+footer .social-icons a {
+    font-size: 1.2em;
+    margin: 0 10px;
+}
+
+
+/* Responsive Adjustments (Media Queries) */
+@media (max-width: 992px) {
+    .grid-2-col {
+        grid-template-columns: 1fr; /* Stack columns on smaller screens */
+        gap: 60px;
+    }
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-text {
+        padding-right: 0;
+        order: 2; /* Text appears below image */
+    }
+    .hero-image {
+        order: 1; /* Image appears above text */
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    .hero-image img {
+        max-width: 70%; /* Smaller image on mobile */
+    }
+    .contact-info h2, .achievements h2 {
+        text-align: center;
+    }
+    .contact-info h2::before, .achievements h2::before {
+        left: 50%;
+        transform: translate(-50%, -50%); /* Center the orange line */
+    }
+    .contact-info p, .email-link {
+        text-align: center;
+        max-width: none; /* Remove max-width on smaller screens */
+    }
+    .achievements h2 {
+        font-size: 1.8em;
+    }
+    .stats {
+        flex-direction: column; /* Stack stats vertically */
+        gap: 30px;
+    }
+    .service-card {
+        padding: 25px;
+    }
+    .portfolio-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjust min-width for portfolio items */
+    }
+    .blog-item {
+        flex-direction: column; /* Stack blog item content */
+        align-items: flex-start;
+        text-align: left;
+        padding: 20px;
+    }
+    .blog-item .date {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    .blog-item a {
+        width: 100%;
+        justify-content: flex-start; /* Align link text to start */
+    }
+    .blog-item a i {
+        margin-left: auto; /* Push icon to the right */
+    }
+    .testimonial-quote p {
+        font-size: 1.3em;
+        padding: 0 20px;
+    }
+    .testimonial-quote p::before, .testimonial-quote p::after {
+        font-size: 2.5em;
+    }
+    .contact-form button {
+        width: 100%; /* Full width button on small screens */
+    }
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: 3em; }
+    h2 { font-size: 2em; }
+    h3 { font-size: 1.6em; }
+    .nav-links {
+        display: none; /* Hide nav links on very small screens (consider a hamburger menu with JS) */
+    }
+    .hero-text h1 {
+        font-size: 3.2em;
+    }
+    .hero-title {
+        font-size: 1.3em;
+    }
+    .stat-item .number {
+        font-size: 3em;
+    }
+}
