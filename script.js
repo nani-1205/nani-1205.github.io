@@ -7,17 +7,16 @@ document.addEventListener('DOMContentLoaded', function() {
     if (pageLoader && siteWrapper) {
         siteWrapper.classList.add('content-hidden'); 
         
-        // Adjust timeout to match the intro animation's desired length
-        // e.g., 3000ms (3 seconds) for the draw + some orbit/pulse
+        // Adjust timeout for the new abstract geometric wave intro animation
+        // 4500ms = 4.5 seconds. Fine-tune this based on the animation.
         setTimeout(() => {
             pageLoader.classList.add('loader-hidden');
-            // Add a slight delay before showing content for a smoother transition out
             setTimeout(() => {
                 siteWrapper.classList.remove('content-hidden');
                 document.body.style.overflow = 'auto'; 
-                highlightNavLink(); // Re-trigger highlight after content is fully visible
-            }, 300); // 0.3s delay for content reveal, adjust as needed
-        }, 3200); // Total loader display time 
+                highlightNavLink(); 
+            }, 800); // Delay for fade-out transition (matches CSS)
+        }, 4500); // Total display time for loader animation (ADJUST THIS AS NEEDED)
     } else {
         if(siteWrapper) siteWrapper.classList.remove('content-hidden');
         document.body.style.overflow = 'auto';

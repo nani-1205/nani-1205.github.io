@@ -27,45 +27,18 @@
 </head>
 <body>
 
-    <!-- NEW Full Page Loader/Intro Animation -->
+    <!-- NEW Full Page Video Loader -->
     <div class="page-loader">
-        <svg class="loader-svg-enhanced" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:var(--primary-blue-light);stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:var(--primary-blue-dark);stop-opacity:1" />
-                </linearGradient>
-                 <filter id="logoGlow" x="-50%" y="-50%" width="200%" height="200%">
-                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                    <feMerge>
-                        <feMergeNode in="coloredBlur"/>
-                        <feMergeNode in="SourceGraphic"/>
-                    </feMerge>
-                </filter>
-            </defs>
-            
-            <!-- Abstract "SJ" like forms or techy shapes -->
-            <g class="loader-logo-group" filter="url(#logoGlow)">
-                <!-- Shape 1 (S-like) -->
-                <path class="logo-shape shape1" 
-                      d="M60,40 C40,40 30,50 30,65 S40,90 60,90 C80,90 90,100 90,115 S80,140 60,140" 
-                      stroke="url(#grad1)" stroke-width="8" fill="none" stroke-linecap="round"/>
-                
-                <!-- Shape 2 (J-like or abstract tech element) -->
-                <path class="logo-shape shape2" 
-                      d="M90,40 C110,40 120,50 120,65 S110,90 90,90 V120 L105,135"
-                      stroke="url(#grad1)" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            </g>
-
-            <!-- Orbiting/pulsing elements -->
-            <circle class="orbit-dot od1" cx="75" cy="75" r="4" />
-            <circle class="orbit-dot od2" cx="75" cy="75" r="3" />
-            <circle class="orbit-dot od3" cx="75" cy="75" r="5" />
-        </svg>
+        <video id="introVideo" autoplay muted playsinline>
+            <!-- IMPORTANT: Replace this with the path to YOUR video file -->
+            <source src="videos/intro-animation.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
     </div>
 
     <div class="site-wrapper content-hidden"> 
-
+        <!-- Header, Main, and Footer remain unchanged -->
+        <!-- Just paste all your sections here from the previous version -->
         <header class="main-header">
             <div class="container header-container">
                 <a href="#home" class="logo" aria-label="Homepage">Sai Jagan Yetukuri</a>
@@ -82,6 +55,7 @@
         </header>
 
         <main>
+            <!-- Hero Section -->
             <section class="hero-section" id="home">
                 <div class="container hero-content-area">
                     <div class="hero-text-content">
